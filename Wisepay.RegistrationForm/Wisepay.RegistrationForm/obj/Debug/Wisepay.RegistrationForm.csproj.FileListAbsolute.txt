@@ -1,1 +1,0 @@
-c:\users\praneeth.teegala\documents\visual studio 2015\Projects\Wisepay.RegistrationForm\Wisepay.RegistrationForm\bin\Debug\Wisepay.RegistrationForm.exe.config
