@@ -1,0 +1,5 @@
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\WisepayServices.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\WisepayServices.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\obj\Debug\WisepayServices.csprojResolveAssemblyReference.cache
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\obj\Debug\WisepayServices.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\obj\Debug\WisepayServices.pdb

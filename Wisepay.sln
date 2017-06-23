@@ -1,9 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wisepay.RegistrationForm", "Wisepay.RegistrationForm\Wisepay.RegistrationForm.csproj", "{3A3AB5D1-EAB0-4BCD-BE62-686AC9FB7E49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{EFB5415D-9B71-4FF9-8F90-E80BBD915582}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdPartyServices", "ThirdPartyServices", "{D7B530ED-FA93-47F0-94AE-19EB33C91136}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InternalServices", "InternalServices", "{8FD79CA8-9875-4D00-8CDE-C0E39FA76209}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WisepayServiceInterfaces", "WisepayServiceInterfaces\WisepayServiceInterfaces.csproj", "{9FB00084-203A-47CD-906B-542691151312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WisepayServices", "WisepayServices\WisepayServices.csproj", "{0A6159B1-B6B6-41DF-B639-0D1AC50955F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGatewayServiceWrapper", "PaymentGatewayServiceWrapper\PaymentGatewayServiceWrapper.csproj", "{4AE9CDA9-61EF-4199-A6CB-59C533DB8093}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +27,25 @@ Global
 		{3A3AB5D1-EAB0-4BCD-BE62-686AC9FB7E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A3AB5D1-EAB0-4BCD-BE62-686AC9FB7E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A3AB5D1-EAB0-4BCD-BE62-686AC9FB7E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB00084-203A-47CD-906B-542691151312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB00084-203A-47CD-906B-542691151312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB00084-203A-47CD-906B-542691151312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB00084-203A-47CD-906B-542691151312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6159B1-B6B6-41DF-B639-0D1AC50955F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6159B1-B6B6-41DF-B639-0D1AC50955F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6159B1-B6B6-41DF-B639-0D1AC50955F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6159B1-B6B6-41DF-B639-0D1AC50955F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE9CDA9-61EF-4199-A6CB-59C533DB8093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE9CDA9-61EF-4199-A6CB-59C533DB8093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE9CDA9-61EF-4199-A6CB-59C533DB8093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE9CDA9-61EF-4199-A6CB-59C533DB8093}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FB00084-203A-47CD-906B-542691151312} = {8FD79CA8-9875-4D00-8CDE-C0E39FA76209}
+		{0A6159B1-B6B6-41DF-B639-0D1AC50955F1} = {8FD79CA8-9875-4D00-8CDE-C0E39FA76209}
+		{4AE9CDA9-61EF-4199-A6CB-59C533DB8093} = {D7B530ED-FA93-47F0-94AE-19EB33C91136}
 	EndGlobalSection
 EndGlobal
