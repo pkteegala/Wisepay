@@ -1,0 +1,55 @@
+﻿
+@{
+  ViewBag.Title = "WisepayLanding";
+}
+@section scripts {
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-animate.min.js"></script>
+    <script src="~/Scripts/angular-aria.min.js"></script>
+    <script src="~/Scripts/angular-messages.min.js"></script>
+    <script src="~/Scripts/angular-material.min.js"> </script>
+
+    <script src="~/App/Wisepay/App.js"></script>
+    <script src="~/App/Wisepay/ViewModels/rootviewmodel.js"></script>
+    <script src="~/App/Wisepay/ViewModels/wisepaylandingviewmodel.js"></script>
+}
+@section jsCode {
+    angular.bootstrap(document.getElementById("wisepaymodule"), ['wisepaymodule']);
+}
+
+
+<div ng-non-bindable>
+    <div id="wisepay" data-ng-controller="rootViewModel">
+
+        <section class="breadcrumbs">
+            <div class="container">
+                <nav class="navbar navbar-toggleable-md navbar-light">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#" ng-click="goHome()">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ng-click="gotoregisternewclient()">Register New Client</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ng-click="gotoaboutus()">About US</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <main>
+            @*<h2>{{ pageHeading }}</h2>*@
+            @*<h2>WisepayLanding</h2>*@
+            <div ng-view></div>
+        </main>
+    </div>
+</div>

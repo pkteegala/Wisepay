@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="refresh" content="900">
+    <title>@ViewBag.Title - Welcome To Wisepay</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body ng-app>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a class="navbar-brand" href="/"><img src="~/images/wisepay-logo.jpg" alt="Wisepay" /></a>
+        </div>
+        <div class="col d-flex align-items-center justify-content-end">
+            <div class="user ">
+                Hello, <strong>@User.Identity.Name!</strong>
+            </div>
+        </div>
+    </div>
+</div>
+        @RenderBody()
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+            @*@Html.Action("Version", "Home")*@
+        </footer>
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+		window.MyApp = {};
+		MyApp.rootPath = '@Url.Content("~")';
+    </script>
+    <script src="~/App/App.js"></script>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+		@RenderSection("jsCode", required: false)
+    </script>
+</body>
+</html>
