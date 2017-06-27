@@ -3,7 +3,7 @@
     $scope.viewModelHelper = viewModelHelper;
 
     var initialize = function () {
-        $scope.pageHeading = "Work To List Section";
+        $scope.pageHeading = "Wisepay Section";
     }
 
     $scope.goHome = function () {

@@ -10,21 +10,22 @@
 
 </head>
 <body ng-app>
-<div class="container">
+<div class="container" style="background-color: yellowgreen">
     <div class="row">
         <div class="col">
-            <a class="navbar-brand" href="/"><img src="~/images/wisepay-logo.jpg" alt="Wisepay" /></a>
+            <h2 align="center" style="font-size: xx-large; color: purple">Welcome to Wisepay</h2>
+            @*<a class="navbar-brand" href="/"><img src="~/images/wisepay-logo.jpg" alt="Wisepay" /></a>*@
         </div>
         <div class="col d-flex align-items-center justify-content-end">
             <div class="user ">
-                Hello, <strong>@User.Identity.Name!</strong>
+                @*<strong>@User.Identity.Name!</strong>*@
             </div>
         </div>
     </div>
 </div>
         @RenderBody()
         <footer>
-            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+            <p align="center">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             @*@Html.Action("Version", "Home")*@
         </footer>
     @Scripts.Render("~/bundles/angular")

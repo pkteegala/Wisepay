@@ -73,3 +73,6 @@ C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Microsoft.Owin.Security
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\obj\Debug\Wisepay.Web.csprojResolveAssemblyReference.cache
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\obj\Debug\Wisepay.Web.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\obj\Debug\Wisepay.Web.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Autofac.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Autofac.Engine.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Autofac.xml
