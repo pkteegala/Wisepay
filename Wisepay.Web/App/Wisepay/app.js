@@ -14,6 +14,22 @@ wisepaymodule.config(function ($routeProvider,
         templateUrl: '/App/Wisepay/Views/wisepaylandingview.html',
         controller: 'wisepaylandingviewmodel'
     });
+    $routeProvider.when('/homeview', {
+        templateUrl: '/App/Wisepay/Views/homeview.html',
+        controller: 'homewmodel'
+    });
+    $routeProvider.when('/registernewclientview', {
+        templateUrl: '/App/Wisepay/Views/registernewclientview.html',
+        controller: 'registernewclientmodel'
+    });
+    $routeProvider.when('/aboutusview', {
+        templateUrl: '/App/Wisepay/Views/aboutusview.html',
+        controller: 'aboutusmodel'
+    });
+    $routeProvider.when('/loginview', {
+        templateUrl: '/App/Wisepay/Views/loginview.html',
+        controller: 'loginmodel'
+    });
 
     $routeProvider.otherwise({
         redirectTo: '/'
