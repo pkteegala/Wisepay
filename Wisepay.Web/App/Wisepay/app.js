@@ -1,4 +1,4 @@
-﻿var wisepaymodule = angular.module('wisepay', ['common', 'ui.bootstrap'])
+﻿var wisepaymodule = angular.module('wisepay', ['common'])
    .filter('split', function () {
        return function (input, splitChar, splitIndex) {
            // do some bounds checking here to ensure it has that index
@@ -25,9 +25,9 @@ wisepaymodule.config(function ($routeProvider,
     });
 });
 wisepaymodule.factory('wisepayService',
-    function ($http, $location, viewModelHelper, statusDropdown, $mdDialog) {
+    function ($http, $location, viewModelHelper, statusDropdown) {
         return MyApp.wisepayService($http,
-            $location, viewModelHelper, statusDropdown, $mdDialog);
+            $location, viewModelHelper, statusDropdown);
     });
 (function (myApp) {
     var wisepayService = function ($http, $location,

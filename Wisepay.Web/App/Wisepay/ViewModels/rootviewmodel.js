@@ -1,4 +1,4 @@
-﻿wisepaymodule.controller("rootViewModel", function ($scope, viewModelHelper) {
+﻿wisepaymodule.controller("rootviewmodel", function ($scope, viewModelHelper) {
 
     $scope.viewModelHelper = viewModelHelper;
 

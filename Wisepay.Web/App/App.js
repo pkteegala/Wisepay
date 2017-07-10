@@ -1,11 +1,11 @@
-﻿var commonModule = angular.module('common', ['ngRoute', 'ngMaterial']);
+﻿var commonModule = angular.module('common', ['ngRoute']);
 var mainModule = angular.module('main', ['common']);
 
 
 commonModule.factory('viewModelHelper',
-    function ($http, $q, $window, $location, $mdDialog) {
+    function ($http, $q, $window, $location) {
         return MyApp.viewModelHelper(
-            $http, $q, $window, $location, $mdDialog);
+            $http, $q, $window, $location);
     });
 (function (myApp) {
     var viewModelHelper = function (

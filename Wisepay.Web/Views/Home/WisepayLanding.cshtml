@@ -4,17 +4,21 @@
 }
 @section scripts {
     <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>*@
     <script src="~/Scripts/angular-animate.min.js"></script>
     <script src="~/Scripts/angular-aria.min.js"></script>
     <script src="~/Scripts/angular-messages.min.js"></script>
-    <script src="~/Scripts/angular-material.min.js"> </script>
 
     <script src="~/App/Wisepay/App.js"></script>
     <script src="~/App/Wisepay/ViewModels/rootviewmodel.js"></script>
+
+
     <script src="~/App/Wisepay/ViewModels/wisepaylandingviewmodel.js"></script>
 }
 @section jsCode {
-    angular.bootstrap(document.getElementById("wisepaymodule"), ['wisepaymodule']);
+    angular.bootstrap(document.getElementById("wisepay"), ['wisepay']);
 }
 
 

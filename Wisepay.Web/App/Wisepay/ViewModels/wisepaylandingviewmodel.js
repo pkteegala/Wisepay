@@ -1,4 +1,4 @@
-﻿wisepaymodule.controller("wisepaylandingviewmodel", ['$scope', '$routeParams', 'viewModelHelper', '$filter', '$mdDialog', function ($scope, $routeParams, viewModelHelper, $filter, $mdDialog) {
+﻿wisepaymodule.controller("wisepaylandingviewmodel", ['$scope', '$routeParams', 'viewModelHelper', function ($scope, $routeParams, viewModelHelper) {
 
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function() {
