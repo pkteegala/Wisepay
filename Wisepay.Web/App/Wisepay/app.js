@@ -22,6 +22,10 @@ wisepaymodule.config(function ($routeProvider,
         templateUrl: '/App/Wisepay/Views/registerview.html',
         controller: 'registermodel'
     });
+    $routeProvider.when('/registeradminuser', {
+        templateUrl: '/App/Wisepay/Views/registeradminuserview.html',
+        controller: 'registeradminusermodel'
+    });
     $routeProvider.when('/aboutus', {
         templateUrl: '/App/Wisepay/Views/aboutusview.html',
         controller: 'aboutusmodel'
@@ -29,6 +33,14 @@ wisepaymodule.config(function ($routeProvider,
     $routeProvider.when('/login', {
         templateUrl: '/App/Wisepay/Views/loginview.html',
         controller: 'loginmodel'
+    });
+    $routeProvider.when('/payment', {
+        templateUrl: '/App/Wisepay/Views/paymentview.html',
+        controller: 'paymentmodel'
+    });
+    $routeProvider.when('/details', {
+        templateUrl: '/App/Wisepay/Views/detailsview.html',
+        controller: 'detailsmodel'
     });
 
     $routeProvider.otherwise({

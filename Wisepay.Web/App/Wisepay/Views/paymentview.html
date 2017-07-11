@@ -1,0 +1,23 @@
+﻿<div ng-app class="container">
+    <div class="row">
+        <h2>Welcome to our {{pageheading}}.</h2><br />
+    </div>
+        <div align="left" style="float: left; width: 100px; height: 100px; background-color: burlywood">
+            <form id="paymentform">
+                <label ng-model="candidatenumber">Candidate ID: {{institutename}}</label><br />
+                <label ng-model="candidatename"> Name of Candidate: {{institutename}}</label><br/>
+                <label ng-model="candidateaddress"> Address: {{instituteaddress}}</label><br/>
+                <label ng-model="paymentamount"> Amount:</label>
+                <input type="number" only-digits step="any" class="form-control" name="input" ng-model="lastname"
+                       placeholder="enter amount" required/><br/><br/>
+                <button class="btn btn-go" type="submit" ng-click="pay()" style="background-color: orangered; position:relative;">Pay Now</button>
+            </form>
+        </div>
+        <div align="right" style=" float: left;width: 100px; height: 100px; background-color: beige">
+            <form id="instituedetailsform">
+                <label ng-model="institutenumber">Institute ID: {{institutename}}</label><br />
+                <label ng-model="institutename"> Name of Institute: {{institutename}}</label><br />
+                <label ng-model="instituteaddress"> Address: {{instituteaddress}}</label><br />
+            </form>
+        </div>
+</div>

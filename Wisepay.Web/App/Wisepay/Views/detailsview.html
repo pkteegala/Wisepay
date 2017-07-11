@@ -1,0 +1,48 @@
+﻿<div ng-app class="container">
+    <div class="row">
+        <h2>Welcome to our {{pageheading}}.</h2><br />
+    </div>
+    <div class="container" style="background-color: beige">
+        <h5 class="" id="" style="color: orange">Search for Details</h5>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <div class="row">
+                        <div id="institutesDropDown" class="col-6">
+                            <label for="" class="">Please Select Institue </label>
+                            <select ng-model="institutename"
+                                    ng-options="institute as institute.institutename for institute in myinstituteslist" class="form-control">
+                                <option value="" disabled selected>Please Select Institute</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div id="candidatesdropdown" class="col-6">
+                            <label for="" class="">Please Select Candidate </label>
+                            <select ng-model="candidatename"
+                                    ng-options="candidate as candidate.candidatename for candidate in mycandidateslist" class="form-control">
+                                <option value="" disabled selected>Please Select Candidate</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <div class="row" id="searchresults">
+                            <label for="" class="">ID: {{name}}</label><br/>
+                            <label for="" class="">Name: {{name}}</label><br/>
+                            <label for="" class="">Address: {{name}}</label><br/>
+                        </div>
+                        <div class="row">
+                            <p class="text-center">
+                                <button class="btn btn-go" type="submit" ng-click="proceedtopayment()" style="background-color: orangered">Proceed To Payment --></button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

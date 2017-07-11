@@ -19,13 +19,14 @@
     <script src="~/App/Wisepay/App.js"></script>
     <script src="~/App/Wisepay/ViewModels/rootviewmodel.js"></script>
 
-
-    <script src="~/App/Wisepay/ViewModels/wisepaylandingviewmodel.js"></script>
     <script src="~/App/Wisepay/ViewModels/aboutusmodel.js"></script>
+    <script src="~/App/Wisepay/ViewModels/detailsmodel.js"></script>
     <script src="~/App/Wisepay/ViewModels/homemodel.js"></script>
+    <script src="~/App/Wisepay/ViewModels/loginmodel.js"></script>
+    <script src="~/App/Wisepay/ViewModels/paymentmodel.js"></script>
+    <script src="~/App/Wisepay/ViewModels/registeradminusermodel.js"></script>
     <script src="~/App/Wisepay/ViewModels/registermodel.js"></script>
     <script src="~/App/Wisepay/ViewModels/wisepaylandingviewmodel.js"></script>
-    <script src="~/App/Wisepay/ViewModels/loginmodel.js"></script>
 
 
     <link href="~/Content/sweetalert.css" rel="stylesheet" />
@@ -44,8 +45,11 @@
                 <div align="center">
                     <button ng-click="goHome()">Home</button>
                     <button ng-click="gotoaboutus()">About Us</button>
-                    <button ng-click="gotoregisternewclient()">Register New Client</button>
+                    <button ng-click="gotoregisternewclient()">Registration</button>
+                    <button ng-click="gotosearch()">Search</button>
+                    <button ng-click="gotoprocesspayment()">Process Payment</button>
                     <button ng-click="gotologin()">Login</button>
+                    <button ng-click="gotoregisteradminuser()">Register Admin</button>
                 </div>
             </div>
             <div class="col d-flex align-items-center justify-content-end">

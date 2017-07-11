@@ -201,6 +201,9 @@
   <ItemGroup>
     <Content Include="App\App.js" />
     <Content Include="App\Wisepay\App.js" />
+    <Content Include="App\Wisepay\ViewModels\paymentmodel.js" />
+    <Content Include="App\Wisepay\ViewModels\detailsmodel.js" />
+    <Content Include="App\Wisepay\ViewModels\registeradminusermodel.js" />
     <Content Include="App\Wisepay\ViewModels\registermodel.js" />
     <Content Include="App\Wisepay\ViewModels\loginmodel.js" />
     <Content Include="App\Wisepay\ViewModels\aboutusmodel.js" />
@@ -208,6 +211,9 @@
     <Content Include="App\Wisepay\ViewModels\homemodel.js" />
     <Content Include="App\Wisepay\ViewModels\wisepaylandingviewmodel.js" />
     <Content Include="App\Wisepay\Views\aboutusview.html" />
+    <Content Include="App\Wisepay\Views\paymentview.html" />
+    <Content Include="App\Wisepay\Views\detailsview.html" />
+    <Content Include="App\Wisepay\Views\registeradminuserview.html" />
     <Content Include="App\Wisepay\Views\registerview.html" />
     <Content Include="App\Wisepay\Views\loginview.html" />
     <Content Include="App\Wisepay\Views\homeview.html" />

@@ -3,7 +3,7 @@
 
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function () {
-        $scope.pageheading = "Welcome to Register New Client Page";
+        $scope.pageheading = "Welcome to Registration Page";
     };
     $('#expirydate')
            .daterangepicker({
@@ -36,7 +36,7 @@
               });
 
 
-    $scope.registeruser = function () {
+    $scope.registercandidate = function () {
 
     };
 
