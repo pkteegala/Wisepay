@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="refresh" content="900">
-    <title>@ViewBag.Title - Welcome To Wisepay</title>
+    <title>@ViewBag.Title - Welcome To Wisepay Angular JS Application</title>
     @Styles.Render("~/Content/css")
 
 </head>
 <body ng-app>
-    <div class="container" style="background-color: yellowgreen">
+    <div class="container" style="background-color: brown">
         <div class="row">
             <div class="col">
-                <h2 align="center" style="font-size: xx-large; color: purple">Welcome to Wisepay</h2>
+                <h2 align="center" style="font-size: xx-large; color: white">Welcome to Angular JS Application</h2>
             </div>
             <div class="col d-flex align-items-center justify-content-end">
                 <div class="user ">
@@ -20,12 +20,13 @@
                 </div>
             </div>
         </div>
+        @RenderBody()
+        <footer>
+            <p align="center" style="background-color: brown; color: white">&copy; @DateTime.Now.Year - My Wisepay Application</p>
+            @*@Html.Action("Version", "Home")*@
+        </footer>
     </div>
-    @RenderBody()
-    <footer>
-        <p align="center">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        @*@Html.Action("Version", "Home")*@
-    </footer>
+
     <script type="text/javascript">
         window.MyApp = {};
         MyApp.rootPath = '@Url.Content("~")';

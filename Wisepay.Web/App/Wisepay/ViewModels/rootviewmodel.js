@@ -6,20 +6,20 @@
         $scope.pageHeading = "Wisepay Section";
     }
     $scope.goHome = function () {
-        alert('Home button clicked');
-        viewModelHelper.navigateTo('homeview');
+        //swal("", 'Home button clicked !', "info");
+        viewModelHelper.navigateTo('home');
     };
     $scope.gotoregisternewclient = function () {
-        alert('Register New Client button clicked');
-        viewModelHelper.navigateTo('registernewclientview');
+        //swal("", 'Register button clicked !', "info");
+        viewModelHelper.navigateTo('register');
     };
     $scope.gotoaboutus = function () {
-        alert('About Us button clicked');
-        viewModelHelper.navigateTo('aboutusview');
+        //swal("", 'About Us button clicked !', "info");
+        viewModelHelper.navigateTo('aboutus');
     };
     $scope.gotologin = function () {
-        alert('Login button clicked');
-        viewModelHelper.navigateTo('loginview');
+        //swal("", 'Login button clicked !', "info");
+        viewModelHelper.navigateTo('login');
     };
     initialize();
 });

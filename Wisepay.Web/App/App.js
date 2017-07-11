@@ -1,5 +1,5 @@
 ﻿var commonModule = angular.module('common', ['ngRoute']);
-var mainModule = angular.module('main', ['common']);
+var mainModule = angular.module('main', ['common', 'ui.bootstrap']);
 
 
 commonModule.factory('viewModelHelper',

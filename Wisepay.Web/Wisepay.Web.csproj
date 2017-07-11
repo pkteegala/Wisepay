@@ -201,14 +201,14 @@
   <ItemGroup>
     <Content Include="App\App.js" />
     <Content Include="App\Wisepay\App.js" />
-    <Content Include="App\Wisepay\ViewModels\registernewclientmodel.js" />
+    <Content Include="App\Wisepay\ViewModels\registermodel.js" />
     <Content Include="App\Wisepay\ViewModels\loginmodel.js" />
     <Content Include="App\Wisepay\ViewModels\aboutusmodel.js" />
     <Content Include="App\Wisepay\ViewModels\rootviewmodel.js" />
     <Content Include="App\Wisepay\ViewModels\homemodel.js" />
     <Content Include="App\Wisepay\ViewModels\wisepaylandingviewmodel.js" />
     <Content Include="App\Wisepay\Views\aboutusview.html" />
-    <Content Include="App\Wisepay\Views\registernewclientview.html" />
+    <Content Include="App\Wisepay\Views\registerview.html" />
     <Content Include="App\Wisepay\Views\loginview.html" />
     <Content Include="App\Wisepay\Views\homeview.html" />
     <Content Include="App\Wisepay\Views\wisepaylandingview.html" />
@@ -216,6 +216,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\daterangepicker.css" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
     <Content Include="Content\sweetalert\docs.css" />
@@ -254,6 +255,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\daterangepicker.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -1013,6 +1015,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sweetalert.min.js" />

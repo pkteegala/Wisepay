@@ -14,19 +14,19 @@ wisepaymodule.config(function ($routeProvider,
         templateUrl: '/App/Wisepay/Views/wisepaylandingview.html',
         controller: 'wisepaylandingviewmodel'
     });
-    $routeProvider.when('/homeview', {
+    $routeProvider.when('/home', {
         templateUrl: '/App/Wisepay/Views/homeview.html',
-        controller: 'homewmodel'
+        controller: 'homemodel'
     });
-    $routeProvider.when('/registernewclientview', {
-        templateUrl: '/App/Wisepay/Views/registernewclientview.html',
-        controller: 'registernewclientmodel'
+    $routeProvider.when('/register', {
+        templateUrl: '/App/Wisepay/Views/registerview.html',
+        controller: 'registermodel'
     });
-    $routeProvider.when('/aboutusview', {
+    $routeProvider.when('/aboutus', {
         templateUrl: '/App/Wisepay/Views/aboutusview.html',
         controller: 'aboutusmodel'
     });
-    $routeProvider.when('/loginview', {
+    $routeProvider.when('/login', {
         templateUrl: '/App/Wisepay/Views/loginview.html',
         controller: 'loginmodel'
     });
