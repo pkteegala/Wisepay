@@ -3,3 +3,15 @@ C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\WisepayServic
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\obj\Debug\WisepayServices.csprojResolveAssemblyReference.cache
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\obj\Debug\WisepayServices.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\obj\Debug\WisepayServices.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\Database.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\RepositoryInterfaces.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\UnitOfWork.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\WisepayServiceInterfaces.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\Repository.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\EntityFramework.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\Database.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\RepositoryInterfaces.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\UnitOfWork.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\WisepayServiceInterfaces.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\Repository.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServices\bin\Debug\EntityFramework.xml

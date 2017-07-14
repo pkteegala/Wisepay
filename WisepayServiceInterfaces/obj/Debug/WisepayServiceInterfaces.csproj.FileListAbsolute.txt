@@ -3,3 +3,7 @@ C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\Wise
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\obj\Debug\WisepayServiceInterfaces.csprojResolveAssemblyReference.cache
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\obj\Debug\WisepayServiceInterfaces.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\obj\Debug\WisepayServiceInterfaces.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\Database.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\RepositoryInterfaces.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\Database.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\RepositoryInterfaces.pdb
