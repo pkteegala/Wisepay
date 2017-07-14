@@ -15,7 +15,7 @@ namespace Wisepay.Web
 
   using Common.Logging.NLog;
 
-  using Microsoft.Owin.Logging;
+  using UnitOfService;
 
   public class MvcApplication : System.Web.HttpApplication
   {
@@ -31,7 +31,6 @@ namespace Wisepay.Web
       DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
       GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container);
 
-
       AreaRegistration.RegisterAllAreas();
       GlobalConfiguration.Configure(WebApiConfig.Register);
       FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -41,13 +40,14 @@ namespace Wisepay.Web
     }
     private void RegisterTypes(ContainerBuilder builder)
     {
-      // Register your MVC controllers.
       builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
       builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-
       var serviceAssemblies = Assembly.Load("WisepayServices");
       builder.RegisterAssemblyTypes(serviceAssemblies).AsImplementedInterfaces();
+
+      var repositories = Assembly.Load("Repository");
+      builder.RegisterAssemblyTypes(repositories).AsImplementedInterfaces();
 
       var unitOfService = Assembly.Load("UnitOfService");
       builder.RegisterAssemblyTypes(unitOfService).AsImplementedInterfaces().InstancePerLifetimeScope();
@@ -57,7 +57,14 @@ namespace Wisepay.Web
         .WithParameter("connectionString", ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString)
         .InstancePerLifetimeScope();
 
-      builder.RegisterType<NLogLogger>().As<ILogger>().InstancePerRequest();
+      
+
+      builder.RegisterAssemblyTypes(
+            typeof(NLogLogger).Assembly)
+            .AsImplementedInterfaces()
+            .InstancePerLifetimeScope();
+
+      //builder.RegisterType<NLogLogger>().As<ILogger>().InstancePerRequest();
     }
   }
 }

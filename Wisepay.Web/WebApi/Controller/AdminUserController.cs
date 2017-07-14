@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Wisepay.Web.WebApi.Controller
@@ -13,22 +11,20 @@ namespace Wisepay.Web.WebApi.Controller
 
   using UnitOfService;
 
-  using Wisepay.Web.Models;
-
   [RoutePrefix("api")]
   public class AdminUserController : ApiController
   {
     private readonly IUnitOfService unitofService;
 
     private readonly ILogger _logger;
-
-    public AdminUserController(IUnitOfService unitOfService)
+    public AdminUserController(IUnitOfService unitOfService, ILogger logger)
     {
       this.unitofService = unitOfService;
+      _logger = logger;
     }
 
     [HttpGet]
-    [Route("adminusers{get}")]
+    [Route("adminusers/{get}")]
     public List<AdminUser> GetAllAdminUsers()
     {
       try
@@ -43,7 +39,7 @@ namespace Wisepay.Web.WebApi.Controller
     }
 
     [HttpPost]
-    [Route("adminuser/{add}")]
+    [Route("adminuser")]
     public string Add([FromBody] AdminUser newAdminUser)
     {
       try

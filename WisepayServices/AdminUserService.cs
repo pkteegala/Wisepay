@@ -27,11 +27,14 @@ namespace WisepayServices
     public void Update(AdminUser admin)
     {
       this.unitOfWork.AdminUserRepostitory.Update(admin);
+      //this.unitOfWork.SaveChanges();
+
     }
 
     public int AddAdminUser(AdminUser newAdminUser)
     {
       this.unitOfWork.AdminUserRepostitory.AddAdminUser(newAdminUser);
+      //this.unitOfWork.SaveChanges();
       return newAdminUser.Id;
     }
 

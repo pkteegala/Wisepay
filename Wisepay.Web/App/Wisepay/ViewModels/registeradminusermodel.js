@@ -74,7 +74,7 @@
                 UserName: $scope.username,
                 Password: $scope.userpassword,
                 Comments: $scope.userCommentsEntered,
-                Registereddate: new date(),
+                Registereddate: $filter('date')(new Date(), 'yyyy-MM-dd'),
                 RoleExpirtyDate: selectedDate
                
             };
@@ -82,7 +82,7 @@
             $.ajax({
                 type: "POST",
                 data: JSON.stringify(addadminusermodel),
-                url: "api/adminuser/add",
+                url: "api/adminuser",
                 contentType: "application/json",
                 success: function (data) {
                     swal("", data, "info");
