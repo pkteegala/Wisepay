@@ -1122,6 +1122,10 @@
       <Project>{c905d76d-bfac-4c31-a53b-df0c0afd6bed}</Project>
       <Name>UnitOfService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UnitOfWork\UnitOfWork.csproj">
+      <Project>{3D5150BE-C55A-4D15-A59D-593E2FBDF329}</Project>
+      <Name>UnitOfWork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WisepayServiceInterfaces\WisepayServiceInterfaces.csproj">
       <Project>{9FB00084-203A-47CD-906B-542691151312}</Project>
       <Name>WisepayServiceInterfaces</Name>

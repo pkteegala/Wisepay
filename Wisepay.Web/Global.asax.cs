@@ -7,6 +7,7 @@ using Autofac.Integration.WebApi;
 
 namespace Wisepay.Web
 {
+  using System;
   using System.Configuration;
   using System.Reflection;
 
@@ -16,6 +17,8 @@ namespace Wisepay.Web
   using Common.Logging.NLog;
 
   using UnitOfService;
+
+  using UnitOfWork;
 
   public class MvcApplication : System.Web.HttpApplication
   {
@@ -36,35 +39,51 @@ namespace Wisepay.Web
       FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
       RouteConfig.RegisterRoutes(RouteTable.Routes);
       BundleConfig.RegisterBundles(BundleTable.Bundles);
-      
+
     }
-    private void RegisterTypes(ContainerBuilder builder)
+    private static void RegisterTypes(ContainerBuilder builder)
     {
       builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
       builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-      var serviceAssemblies = Assembly.Load("WisepayServices");
-      builder.RegisterAssemblyTypes(serviceAssemblies).AsImplementedInterfaces();
-
-      var repositories = Assembly.Load("Repository");
-      builder.RegisterAssemblyTypes(repositories).AsImplementedInterfaces();
+      var connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+      //builder.Register(x => new UnitOfWork(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString)).As<IUnitOfWork>().InstancePerLifetimeScope();
+      ////builder.Register(x => new UnitOfService(new UnitOfWork(ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString))).As<IUnitOfService>().InstancePerLifetimeScope();
+      ////builder.RegisterType<UnitOfService>().As<IUnitOfService>().InstancePerLifetimeScope();
+      //builder.RegisterAssemblyTypes(
+      //      typeof(UnitOfService).Assembly)
+      //      .AsImplementedInterfaces()
+      //      .InstancePerLifetimeScope();
 
       var unitOfService = Assembly.Load("UnitOfService");
-      builder.RegisterAssemblyTypes(unitOfService).AsImplementedInterfaces().InstancePerLifetimeScope();
+      builder.RegisterAssemblyTypes(unitOfService)
+       .AsImplementedInterfaces().InstancePerLifetimeScope();
 
       var unitOfWork = Assembly.Load("UnitOfWork");
       builder.RegisterAssemblyTypes(unitOfWork).AsImplementedInterfaces()
-        .WithParameter("connectionString", ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString)
+        .WithParameter("connectionString", connectionString)
         .InstancePerLifetimeScope();
 
-      
+      var serviceAssemblies = Assembly.Load("WisepayServices");
+      builder.RegisterAssemblyTypes(serviceAssemblies).AsImplementedInterfaces().InstancePerLifetimeScope();
+
+      var repositories = Assembly.Load("Repository");
+      builder.RegisterAssemblyTypes(repositories).AsImplementedInterfaces().InstancePerLifetimeScope();
+
+      var config = GlobalConfiguration.Configuration;
+      builder.RegisterWebApiFilterProvider(config);
 
       builder.RegisterAssemblyTypes(
             typeof(NLogLogger).Assembly)
             .AsImplementedInterfaces()
             .InstancePerLifetimeScope();
 
-      //builder.RegisterType<NLogLogger>().As<ILogger>().InstancePerRequest();
+      builder.RegisterFilterProvider();
+
+
+
+      
+
     }
   }
 }

@@ -17,6 +17,7 @@ namespace Wisepay.Web.WebApi.Controller
     private readonly IUnitOfService unitofService;
 
     private readonly ILogger _logger;
+    
     public AdminUserController(IUnitOfService unitOfService, ILogger logger)
     {
       this.unitofService = unitOfService;

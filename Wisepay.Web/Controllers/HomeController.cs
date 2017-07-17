@@ -6,8 +6,27 @@ using System.Web.Mvc;
 
 namespace Wisepay.Web.Controllers
 {
+  using Database;
+
+  using NLog;
+
+  using UnitOfService;
+
   public class HomeController : Controller
   {
+    private readonly IUnitOfService unitofService;
+
+    private readonly ILogger _logger;
+
+    public HomeController()
+    {
+     
+    }
+    public HomeController(IUnitOfService unitOfService, ILogger logger)
+    {
+      this.unitofService = unitOfService;
+      _logger = logger;
+    }
     public ActionResult Index()
     {
       return View();
@@ -22,6 +41,7 @@ namespace Wisepay.Web.Controllers
 
     public ActionResult WisepayLanding()
     {
+      var newId = this.unitofService.AdminUserService.AddAdminUser(new AdminUser());
       ViewBag.Message = "Your Wisepay application Landing page.";
       return View();
     }
