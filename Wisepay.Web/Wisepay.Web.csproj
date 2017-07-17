@@ -77,10 +77,6 @@
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.4.4.11\lib\net45\NLog.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Purplelight.Framework.Autofac.Integration.WebApi, Version=0.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Purplelight.Framework.Autofac.Integration.WebApi.0.2.2\lib\net45\Purplelight.Framework.Autofac.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
@@ -1117,6 +1113,14 @@
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{983BC4F3-75C2-4823-B46B-2307EEABA7DE}</Project>
       <Name>Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{d6767eb3-7c4b-452c-a4a3-f3b156c7cae0}</Project>
+      <Name>Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{023E9E93-6E47-4E71-9260-407915903A95}</Project>
+      <Name>Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\UnitOfService\UnitOfService.csproj">
       <Project>{c905d76d-bfac-4c31-a53b-df0c0afd6bed}</Project>

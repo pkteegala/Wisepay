@@ -1,8 +1,7 @@
 ﻿using System;
-
+using NLog;
 namespace Logging.NLog
 {
-  using global::NLog;
 
   public class NLogLogger: Logging.ILogger
   {

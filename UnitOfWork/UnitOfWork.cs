@@ -8,7 +8,7 @@ namespace UnitOfWork
 
   using RepositoryInterfaces;
 
-  public class UnitOfWork:IUnitOfWork
+  public class UnitOfWork: IUnitOfWork
   {
     private readonly WisepayContext context;
 

@@ -12,7 +12,7 @@ namespace UnitOfService
 
   using WisepayServices;
 
-  public  class UnitOfService
+  public  class UnitOfService:IUnitOfService
   {
     private IAdminUserService adminUserService;
 
@@ -22,13 +22,9 @@ namespace UnitOfService
     {
       this.unitOfWork = unitOfWork;
     }
-    public IAdminUserService StudentService
-    {
-      get
-      {
-        return this.adminUserService ?? (this.adminUserService = new AdminUserService(this.unitOfWork));
-      }
-    }
+
+    public IAdminUserService AdminUserService => this.adminUserService ?? (this.adminUserService = new AdminUserService(this.unitOfWork));
+
     public void SaveChanges()
     {
       this.unitOfWork.SaveChanges();

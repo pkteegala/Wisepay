@@ -8,8 +8,8 @@ namespace Wisepay.Web.Controllers
 {
   using Database;
 
-  using NLog;
-
+  using Logging;
+  
   using UnitOfService;
 
   public class HomeController : Controller
@@ -18,10 +18,7 @@ namespace Wisepay.Web.Controllers
 
     private readonly ILogger _logger;
 
-    public HomeController()
-    {
-     
-    }
+   
     public HomeController(IUnitOfService unitOfService, ILogger logger)
     {
       this.unitofService = unitOfService;

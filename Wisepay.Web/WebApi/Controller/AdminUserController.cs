@@ -7,7 +7,7 @@ namespace Wisepay.Web.WebApi.Controller
 {
   using Database;
 
-  using NLog;
+  using Logging;
 
   using UnitOfService;
 
