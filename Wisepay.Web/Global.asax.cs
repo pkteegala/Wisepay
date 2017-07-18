@@ -55,9 +55,9 @@ namespace Wisepay.Web
 
       var connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
 
-      builder.RegisterType<WisepayContext>()
-   .As<DbContext>()
-   .WithParameter("connectionstring", connectionString).InstancePerLifetimeScope();
+   //   builder.RegisterType<WisepayContext>()
+   //.As<DbContext>()
+   //.WithParameter("connectionstring", connectionString).InstancePerLifetimeScope();
 
       var repositories = Assembly.Load("Repository");
       builder.RegisterAssemblyTypes(repositories).AsImplementedInterfaces().InstancePerLifetimeScope();
@@ -69,10 +69,10 @@ namespace Wisepay.Web
 
       var serviceAssemblies = Assembly.Load("WisepayServices");
       builder.RegisterAssemblyTypes(serviceAssemblies).AsImplementedInterfaces().InstancePerLifetimeScope();
-   
+
 
       builder.RegisterType<NLogLogger>().As<ILogger>().InstancePerLifetimeScope();
-     
+
 
       var unitOfService = Assembly.Load("UnitOfService");
       builder.RegisterAssemblyTypes(unitOfService).AsImplementedInterfaces().InstancePerLifetimeScope();

@@ -7,7 +7,7 @@
         resetPage();
     };
 
-    var resetPage = function() {
+    var resetPage = function () {
         $scope.userfirstname = '';
         $scope.lastname = '';
         $scope.username = '';
@@ -64,10 +64,10 @@
         return true;
     };
 
-    $scope.saveadminuserentry=function() {
+    $scope.saveadminuserentry = function () {
         if (validateDataEntered()) {
             var selectedDate = $('#expirydate').data('daterangepicker').startDate.format('YYYY-MM-DD');
-            
+
             var addadminusermodel = {
                 FirstName: $scope.userfirstname,
                 LastName: $scope.lastname,
@@ -75,8 +75,8 @@
                 Password: $scope.userpassword,
                 Comments: $scope.userCommentsEntered,
                 Registereddate: $filter('date')(new Date(), 'yyyy-MM-dd'),
-                RoleExpirtyDate: selectedDate
-               
+                RoleExpirtyDate: selectedDate,
+                IsActive: true
             };
 
             $.ajax({
@@ -85,13 +85,16 @@
                 url: "api/adminuser",
                 contentType: "application/json",
                 success: function (data) {
-                    swal("", data, "info");
-                    initialize();
+                    if (data.contains('success')) {
+                        swal("Success!", data, "success");
+                        initialize();
+                    }
+                    swal("", data, "error");
                 }
             });
-            resetPage();
+            //resetPage();
         };
     }
-   initialize();
+    initialize();
 
 }]);

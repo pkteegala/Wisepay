@@ -11,8 +11,10 @@ namespace WisepayServiceInterfaces
 
     AdminUser GetById(Int32 id);
 
+    string AdminAuthenticate(string firstName, string lastName, string userName, string password);
+
     void Update(AdminUser admin);
 
-    int AddAdminUser(AdminUser newAdminUser);
+    string AddAdminUser(AdminUser newAdminUser);
     }
 }

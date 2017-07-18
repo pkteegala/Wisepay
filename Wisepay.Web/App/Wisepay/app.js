@@ -8,29 +8,52 @@
        }
    });
 
+wisepaymodule.factory('Auth', function () {
+      var user;
+      return {
+          setUser: function (aUser) {
+              user = aUser;
+          },
+          isLoggedIn: function () {
+              return (user) ? user : false;
+          }
+      };
+  });
+
+wisepaymodule.run(['$rootScope', '$location', 'Auth', viewModelHelper, function ($rootScope, $location, Auth, viewModelHelper) {
+         $rootScope.$on('$routeChangeStart', function (event) {
+
+             if (!Auth.isLoggedIn()) {
+                 console.log('DENY : Redirecting to Login');
+                 event.preventDefault();
+                 $location.path('/login');
+                 viewModelHelper.navigateTo('login');
+             }
+             else {
+                 console.log('ALLOW');
+                 $location.path('/home');
+                 viewModelHelper.navigateTo('home');
+             }
+         });
+     }])
+
 wisepaymodule.config(function ($routeProvider,
                                 $locationProvider) {
     $routeProvider.when('/', {
         templateUrl: '/App/Wisepay/Views/wisepaylandingview.html',
-        controller: 'wisepaylandingviewmodel',
-        roles: ['admin', 'user']
+        controller: 'wisepaylandingviewmodel'
     });
     $routeProvider.when('/home', {
         templateUrl: '/App/Wisepay/Views/homeview.html',
-        controller: 'homemodel',
-        roles: ['admin', 'user']
+        controller: 'homemodel'
     });
     $routeProvider.when('/register', {
         templateUrl: '/App/Wisepay/Views/registerview.html',
-        controller: 'registermodel',
-        requiresAuthentication: true,
-        roles: ['admin', 'user']
+        controller: 'registermodel'
     });
     $routeProvider.when('/registeradminuser', {
         templateUrl: '/App/Wisepay/Views/registeradminuserview.html',
-        controller: 'registeradminusermodel',
-        requiresAuthentication: true,
-        roles: ['admin', 'user']
+        controller: 'registeradminusermodel'
     });
     $routeProvider.when('/aboutus', {
         templateUrl: '/App/Wisepay/Views/aboutusview.html',
@@ -45,14 +68,18 @@ wisepaymodule.config(function ($routeProvider,
     $routeProvider.when('/payment', {
         templateUrl: '/App/Wisepay/Views/paymentview.html',
         controller: 'paymentmodel',
-        requiresAuthentication: true,
-        roles: ['admin', 'user']
+        data: {
+            authorization: true,
+            redirectTo: '/login'
+        }
     });
     $routeProvider.when('/details', {
         templateUrl: '/App/Wisepay/Views/detailsview.html',
         controller: 'detailsmodel',
-        requiresAuthentication: true,
-        roles: ['admin', 'user']
+        data: {
+            authorization: true,
+            redirectTo: '/login'
+        }
     });
 
     $routeProvider.otherwise({

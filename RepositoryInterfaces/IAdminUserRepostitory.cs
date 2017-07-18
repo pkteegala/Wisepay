@@ -6,13 +6,16 @@ namespace RepositoryInterfaces
 
   using Database;
 
-  public interface IAdminUserRepostitory
+  using Repository;
+
+  public interface IAdminUserRepostitory: IBaseRepository<AdminUser>
   {
     IList<AdminUser> GetAll();
     AdminUser GetById(Int32 id);
+    AdminUser GetByAdminUser(AdminUser adminUser);
 
     void Update(AdminUser course);
 
-    void AddAdminUser(AdminUser newAdminUser);
+    AdminUser AddAdminUser(AdminUser newAdminUser);
   }
 }

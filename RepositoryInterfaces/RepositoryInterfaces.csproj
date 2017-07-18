@@ -48,6 +48,10 @@
       <Project>{983BC4F3-75C2-4823-B46B-2307EEABA7DE}</Project>
       <Name>Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EFRepository\EFRepository.csproj">
+      <Project>{EA98C6F2-F063-437F-AFBE-7725CEF6DA3A}</Project>
+      <Name>EFRepository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,5 +4,7 @@
     var initialize = function() {
         $scope.pageheading = "Welcome to HomePage";
     };
+
+
     initialize();
 }]);

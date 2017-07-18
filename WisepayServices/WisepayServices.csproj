@@ -48,6 +48,10 @@
       <Project>{983bc4f3-75c2-4823-b46b-2307eeaba7de}</Project>
       <Name>Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EFRepository\EFRepository.csproj">
+      <Project>{EA98C6F2-F063-437F-AFBE-7725CEF6DA3A}</Project>
+      <Name>EFRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RepositoryInterfaces\RepositoryInterfaces.csproj">
       <Project>{EF10EC24-1945-4085-8752-520D3B2F0F9D}</Project>
       <Name>RepositoryInterfaces</Name>

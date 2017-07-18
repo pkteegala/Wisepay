@@ -1,5 +1,6 @@
 ﻿namespace Repository
 {
+  using System;
   using System.Collections.Generic;
   using System.Data.Entity;
   using System.Linq;
@@ -8,34 +9,42 @@
 
   using RepositoryInterfaces;
 
-  public class AdminUserRepository: IAdminUserRepostitory
+  public class AdminUserRepository:BaseRepository<AdminUser>, IAdminUserRepostitory
   {
     private readonly WisepayContext context;
 
     public AdminUserRepository(WisepayContext context)
-    {
-      this.context = context;
+            : base(context)
+        {
     }
+    //public AdminUserRepository(WisepayContext context)
+    //{
+    //  this.context = context;
+    //}
    public IList<AdminUser> GetAll()
    {
-      return this.context.AdminUsers.ToList();
-    }
+      //return this.context.AdminUsers.ToList();
+     return this.Entities.ToList();
+   }
 
     public AdminUser GetById(int id)
     {
-      return this.context.AdminUsers.FirstOrDefault(s => s.Id.Equals(id));
+      return this.Entities.FirstOrDefault(s => s.Id.Equals(id) && s.IsActive);
+    }
+
+    public AdminUser GetByAdminUser(AdminUser adminUser)
+    {
+     return this.Entities.FirstOrDefault(s => s.FirstName.Equals(adminUser.FirstName) && s.LastName.Equals(adminUser.LastName) && s.UserName.Equals(adminUser.UserName) && s.Password.Equals(adminUser.Password) && s.IsActive);
     }
 
     public void Update(AdminUser admin)
     {
-      this.context.AdminUsers.Attach(admin);
-      this.context.Entry(admin).State = EntityState.Modified;
+      this.Update(admin);
     }
 
-    public void AddAdminUser(AdminUser newAdminUser)
+    public AdminUser AddAdminUser(AdminUser newAdminUser)
     {
-       this.context.AdminUsers.Add(newAdminUser);
-
+       return this.Create(newAdminUser);
     }
   }
 }

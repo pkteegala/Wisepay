@@ -54,6 +54,10 @@
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EFRepository\EFRepository.csproj">
+      <Project>{EA98C6F2-F063-437F-AFBE-7725CEF6DA3A}</Project>
+      <Name>EFRepository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RepositoryInterfaces\RepositoryInterfaces.csproj">
       <Project>{ef10ec24-1945-4085-8752-520d3b2f0f9d}</Project>
       <Name>RepositoryInterfaces</Name>

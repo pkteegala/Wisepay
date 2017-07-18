@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminUserRepository.cs" />
-    <Compile Include="Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="WisepayContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +62,10 @@
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{983bc4f3-75c2-4823-b46b-2307eeaba7de}</Project>
       <Name>Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EFRepository\EFRepository.csproj">
+      <Project>{EA98C6F2-F063-437F-AFBE-7725CEF6DA3A}</Project>
+      <Name>EFRepository</Name>
     </ProjectReference>
     <ProjectReference Include="..\RepositoryInterfaces\RepositoryInterfaces.csproj">
       <Project>{ef10ec24-1945-4085-8752-520d3b2f0f9d}</Project>

@@ -14,3 +14,5 @@ C:\Srinivas\TestProjects\Wisepay\Wisepay\UnitOfWork\bin\Debug\Database.pdb
 C:\Srinivas\TestProjects\Wisepay\Wisepay\UnitOfWork\obj\Debug\UnitOfWork.csprojResolveAssemblyReference.cache
 C:\Srinivas\TestProjects\Wisepay\Wisepay\UnitOfWork\obj\Debug\UnitOfWork.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\UnitOfWork\obj\Debug\UnitOfWork.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\UnitOfWork\bin\Debug\EFRepository.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\UnitOfWork\bin\Debug\EFRepository.pdb

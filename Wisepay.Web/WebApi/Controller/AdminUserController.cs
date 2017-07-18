@@ -45,17 +45,29 @@ namespace Wisepay.Web.WebApi.Controller
     {
       try
       {
-        var newId= this.unitofService.AdminUserService.AddAdminUser(newAdminUser);
-        if (newId != -1)
-        {
-          return "Admin User added Successfully";
-        }
-        return null;
+       return this.unitofService.AdminUserService.AddAdminUser(newAdminUser);
       }
       catch (Exception exception)
       {
         _logger.Error(exception);
-        return "Failed to add New Admin User " + exception;
+        return exception.ToString();
+      }
+    }
+
+    [HttpPost]
+    [Route("adminuser/authenticate/{firstname}/{lastname}/{username}/{password}")]
+    public string AdminAuthenticate(string firstName,string lastName,string userName,string password)
+    {
+      try
+      {
+        var result = this.unitofService.AdminUserService.AdminAuthenticate(firstName, lastName, userName, password);
+       return result == String.Empty ? "Failed to Login " :result ;
+        
+      }
+      catch (Exception exception)
+      {
+        _logger.Error(exception);
+        return "Failed" +  exception;
       }
     }
 

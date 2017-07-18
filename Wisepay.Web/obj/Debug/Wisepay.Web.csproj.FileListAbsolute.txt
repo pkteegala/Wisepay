@@ -110,3 +110,5 @@ C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\RepositoryInterfaces.pd
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Repository.pdb
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Logging.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Logging.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\EFRepository.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\EFRepository.pdb

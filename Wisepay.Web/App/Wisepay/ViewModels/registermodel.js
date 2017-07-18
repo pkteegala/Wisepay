@@ -1,10 +1,27 @@
-﻿wisepaymodule.controller("registermodel", ['$scope', '$routeParams', 'viewModelHelper', '$filter', function ($scope, $routeParams, viewModelHelper, $filter) {
+﻿wisepaymodule.controller("registermodel", ['$scope', '$routeParams', 'viewModelHelper', '$filter', 'Auth', '$location', function ($scope, $routeParams, viewModelHelper, $filter, Auth, $location) {
     var today = new Date();
 
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function () {
         $scope.pageheading = "Welcome to Registration Page";
     };
+
+
+    $scope.$watch(Auth.isLoggedIn, function (value, oldValue) {
+
+        if (!value && oldValue) {
+            console.log("Disconnect");
+            $location.path('/login');
+        }
+
+        if (value) {
+            console.log("Connect");
+            //Do something when the user is connected
+        }
+
+    }, true);
+
+
     $('#expirydate')
            .daterangepicker({
                startDate: today,
@@ -40,7 +57,7 @@
 
     };
 
-    $scope.registerinstitute = function() {
+    $scope.registerinstitute = function () {
 
     };
 

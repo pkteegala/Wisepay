@@ -22,6 +22,8 @@ namespace Database
     public DateTime Registereddate { get; set; }
 
     public DateTime RoleExpirtyDate { get; set; }
+    public Boolean IsActive { get; set; }
+
 
   }
 }
