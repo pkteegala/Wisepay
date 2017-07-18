@@ -1,4 +1,4 @@
-﻿wisepaymodule.controller("loginmodel", ['$scope', '$routeParams', 'viewModelHelper','Auth', function ($scope, $routeParams, viewModelHelper,Auth) {
+﻿wisepaymodule.controller("loginmodel", ['$scope', '$routeParams', 'viewModelHelper', 'Auth', '$location', function ($scope, $routeParams, viewModelHelper, Auth, $location) {
 
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function () {
@@ -29,15 +29,15 @@
         }
         return true;
     };
-    $scope.letmein=function() {
+    $scope.letmein = function () {
+        Auth.ClearCredentials();
         if (validateDataEntered()) {
 
             viewModelHelper.apiGet("api/adminuser/authenticate/" + $scope.firstname + "/" + $scope.lastname + "/" + $scope.username + "/" + $scope.password,null,function (result) {
                 if (result.contains('Failed')) {
                     swal("", result, "error");
                 } else {
-                    var user = result;
-                    Auth.setUser(user);
+                    Auth.SetCredentials($scope.username,$scope.password);
                 }
             });
         }

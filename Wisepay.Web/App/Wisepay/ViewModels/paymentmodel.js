@@ -10,6 +10,7 @@
         if (!value && oldValue) {
             console.log("Disconnect");
             $location.path('/login');
+            viewModelHelper.navigateTo('login');
         }
 
         if (value) {
