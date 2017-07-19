@@ -14,6 +14,8 @@
         $scope.userpassword = '';
         $scope.expirydate = '';
         $scope.userCommentsEntered = '';
+        $scope.adminUserslist = '';
+        $('#adminUserListDiv').hide();
     };
 
 
@@ -95,6 +97,20 @@
             //resetPage();
         };
     }
+    $scope.listadminusers = function() {
+
+        viewModelHelper.apiGet("api/adminusers/get",null,function (result) {
+            if (result.data == undefined || result.data == null || result.data.length == 0) {
+                swal("", "Failed to load any Admin Users or No users to be listed", "error");
+            } else {
+                $('#adminUserListDiv').show();
+                $scope.adminUserslist = result.data;
+            }
+        });
+    };
+    $scope.hidelist = function() {
+        $('#adminUserListDiv').hide();
+    };
     initialize();
 
 }]);

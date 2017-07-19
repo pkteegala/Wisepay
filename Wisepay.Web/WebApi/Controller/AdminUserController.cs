@@ -25,7 +25,7 @@ namespace Wisepay.Web.WebApi.Controller
     }
 
     [HttpGet]
-    [Route("adminusers/{get}")]
+    [Route("adminusers/get")]
     public List<AdminUser> GetAllAdminUsers()
     {
       try

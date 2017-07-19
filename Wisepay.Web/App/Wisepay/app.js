@@ -25,12 +25,12 @@ wisepaymodule.config(function ($routeProvider,
     $routeProvider.when('/registeradminuser', {
         templateUrl: '/App/Wisepay/Views/registeradminuserview.html',
         controller: 'registeradminusermodel'
-       
+
     });
     $routeProvider.when('/aboutus', {
         templateUrl: '/App/Wisepay/Views/aboutusview.html',
         controller: 'aboutusmodel'
-       
+
     });
     $routeProvider.when('/login', {
         templateUrl: '/App/Wisepay/Views/loginview.html',
@@ -67,7 +67,7 @@ wisepaymodule.run(['$rootScope', '$location', '$cookies', '$http', function ($ro
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
         // redirect to login page if not logged in and trying to access a restricted page
-        var restrictedPage = $.inArray($location.path(), ['/login', '/home', '/aboutus', '/registeradminuser']) === -1;
+        var restrictedPage = $.inArray($location.path(), ['/login', '/', '/home', '/aboutus', '/registeradminuser']) === -1;
         var loggedIn = $rootScope.globals.currentUser;
         if (restrictedPage && !loggedIn) {
             $location.path('/login');
@@ -85,7 +85,7 @@ wisepaymodule.factory('wisepayService',
     wisepaymodule.factory('Auth', Auth);
     Auth.$inject = ['$http', '$cookies', '$rootScope', '$timeout'];
 
-    function Auth($http, $cookies, $rootScope, $timeout) {
+    function Auth($http, $cookies, $rootScope, viewModelHelper) {
         var service = {};
 
         service.Login = Login;
@@ -97,13 +97,13 @@ wisepaymodule.factory('wisepayService',
 
         function Login(firstname, lastname, username, password) {
 
-            viewModelHelper.apiPost("api/adminuser/authenticate/" + firstname + "/" + lastname + "/" + username + "/" + password, null, function (result) {
-                if (result.contains('Failed')) {
-                    swal("", result, "error");
-                } else {
-                    SetCredentials(username, password);
-                }
-            });
+            $http.apiPost("api/adminuser/authenticate/" + firstname + "/" + lastname + "/" + username + "/" + password, null, function (result) {
+                    if (result.contains('Failed')) {
+                        swal("", result, "error");
+                    } else {
+                        SetCredentials(username, password);
+                    }
+                });
 
         }
 
