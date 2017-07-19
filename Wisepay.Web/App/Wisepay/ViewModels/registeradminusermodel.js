@@ -87,7 +87,7 @@
                 url: "api/adminuser",
                 contentType: "application/json",
                 success: function (data) {
-                    if (data.contains('success')) {
+                    if (data.indexOf('success') !=-1) {
                         swal("Success!", data, "success");
                         initialize();
                     }

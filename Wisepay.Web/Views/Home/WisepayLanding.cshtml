@@ -55,7 +55,7 @@
             </div>
             <div class="col d-flex align-items-center justify-content-end">
                 <div class="user " align="right">
-                    <strong> You are logged in as : Guest</strong>@*@User.Identity.Name!*@
+                    <strong> You are logged in as : {{$root.globals.currentuser.username}}</strong>@*@User.Identity.Name!*@
                 </div>
             </div>
             <div align="center">

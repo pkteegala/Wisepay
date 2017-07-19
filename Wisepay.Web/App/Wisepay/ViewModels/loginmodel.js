@@ -1,12 +1,12 @@
-﻿wisepaymodule.controller("loginmodel", ['$scope', '$routeParams', 'viewModelHelper', 'Auth', '$location', function ($scope, $routeParams, viewModelHelper, Auth, $location) {
-    
+﻿wisepaymodule.controller("loginmodel", ['$scope', '$routeParams', 'viewModelHelper', 'Auth', '$location', '$rootScope', function ($scope, $routeParams, viewModelHelper, Auth, $location, $rootScope) {
+
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function () {
         $scope.pageheading = "Wisepay Login Page";
         Auth.ClearCredentials();
     };
 
-    $scope.redirecttoregister=function() {
+    $scope.redirecttoregister = function () {
         viewModelHelper.navigateTo('registeradminuser');
     }
     var validateDataEntered = function () {
@@ -30,18 +30,20 @@
         }
         return true;
     };
-    $scope.letmein = function () {
+    $scope.letmein = function() {
         if (validateDataEntered()) {
-            Auth.Login($scope.firstname, $scope.lastname, $scope.username, $scope.password);
-            //viewModelHelper.apiPost("api/adminuser/authenticate/" + $scope.firstname + "/" + $scope.lastname + "/" + $scope.username + "/" + $scope.password,null,function (result) {
-            //    if (result.contains('Failed')) {
-            //        swal("", result, "error");
-            //    } else {
-            //        Auth.SetCredentials($scope.username,$scope.password);
-            //    }
-            //});
-        }
-       
-    }
+            var promise = Auth.Login($scope.firstname, $scope.lastname, $scope.username, $scope.password);
+            promise.then(function(loginstatus) {
+                if (loginstatus.indexOf('Failed') != -1) {
+                    swal("", loginstatus.data, "error");
+                } else {
+                    Auth.SetCredentials(username, password);
+                    var myuser = $rootScope.globals.currentUser.username;
+                    swal("", "Successfully Logged in as" + loginStatus, "error");
+                }
+            });
+
+        };
+    };
     initialize();
 }]);

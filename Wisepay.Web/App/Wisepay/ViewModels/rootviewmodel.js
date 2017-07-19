@@ -1,9 +1,12 @@
-﻿wisepaymodule.controller("rootviewmodel", function ($scope, viewModelHelper) {
+﻿wisepaymodule.controller("rootviewmodel", ['$scope', 'viewModelHelper', '$rootScope', function ($scope, viewModelHelper, $rootScope) {
 
     $scope.viewModelHelper = viewModelHelper;
+    $scope.currentloggedinuser = '';
+
 
     var initialize = function () {
         $scope.pageHeading = "Wisepay Section";
+        //$scope.currentloggedinuser = $rootScope.globals.currentUser.username;
     }
     $scope.goHome = function () {
         viewModelHelper.navigateTo('home');
@@ -27,4 +30,4 @@
         viewModelHelper.navigateTo('payment');
     };
     initialize();
-});
+}]);

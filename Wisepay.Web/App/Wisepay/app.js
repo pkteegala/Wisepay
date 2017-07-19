@@ -83,7 +83,7 @@ wisepaymodule.factory('wisepayService',
 (function () {
     'use strict';
     wisepaymodule.factory('Auth', Auth);
-    Auth.$inject = ['$http', '$cookies', '$rootScope', '$timeout'];
+    Auth.$inject = ['$http', '$cookies', '$rootScope', 'viewModelHelper'];
 
     function Auth($http, $cookies, $rootScope, viewModelHelper) {
         var service = {};
@@ -96,15 +96,9 @@ wisepaymodule.factory('wisepayService',
 
 
         function Login(firstname, lastname, username, password) {
-
-            $http.apiPost("api/adminuser/authenticate/" + firstname + "/" + lastname + "/" + username + "/" + password, null, function (result) {
-                    if (result.contains('Failed')) {
-                        swal("", result, "error");
-                    } else {
-                        SetCredentials(username, password);
-                    }
-                });
-
+           viewModelHelper.apiPost("api/adminuser/authenticate/" + firstname + "/" + lastname + "/" + username + "/" + password, null, function(result) {
+               return result;
+           });
         }
 
         function SetCredentials(username, password) {
