@@ -1,12 +1,13 @@
 ﻿wisepaymodule.controller("loginmodel", ['$scope', '$routeParams', 'viewModelHelper', 'Auth', '$location', function ($scope, $routeParams, viewModelHelper, Auth, $location) {
-
+    
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function () {
         $scope.pageheading = "Wisepay Login Page";
+        Auth.ClearCredentials();
     };
 
     $scope.redirecttoregister=function() {
-        viewModelHelper.navigateTo('register');
+        viewModelHelper.navigateTo('registeradminuser');
     }
     var validateDataEntered = function () {
         if ($scope.firstname == undefined || $scope.firstname.length == 0) {
@@ -30,16 +31,15 @@
         return true;
     };
     $scope.letmein = function () {
-        Auth.ClearCredentials();
         if (validateDataEntered()) {
-
-            viewModelHelper.apiGet("api/adminuser/authenticate/" + $scope.firstname + "/" + $scope.lastname + "/" + $scope.username + "/" + $scope.password,null,function (result) {
-                if (result.contains('Failed')) {
-                    swal("", result, "error");
-                } else {
-                    Auth.SetCredentials($scope.username,$scope.password);
-                }
-            });
+            Auth.Login($scope.firstname, $scope.lastname, $scope.username, $scope.password);
+            //viewModelHelper.apiPost("api/adminuser/authenticate/" + $scope.firstname + "/" + $scope.lastname + "/" + $scope.username + "/" + $scope.password,null,function (result) {
+            //    if (result.contains('Failed')) {
+            //        swal("", result, "error");
+            //    } else {
+            //        Auth.SetCredentials($scope.username,$scope.password);
+            //    }
+            //});
         }
        
     }
