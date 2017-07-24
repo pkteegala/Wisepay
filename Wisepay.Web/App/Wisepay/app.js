@@ -96,9 +96,9 @@ wisepaymodule.factory('wisepayService',
 
 
         function Login(firstname, lastname, username, password) {
-           viewModelHelper.apiPost("api/adminuser/authenticate/" + firstname + "/" + lastname + "/" + username + "/" + password, null, function(result) {
-               return result;
-           });
+            viewModelHelper.apiPost("api/adminuser/authenticate/" +firstname +"/" +lastname +"/" +username +"/" +password).then(function(result) {
+                    return result.data;
+                });
         }
 
         function SetCredentials(username, password) {

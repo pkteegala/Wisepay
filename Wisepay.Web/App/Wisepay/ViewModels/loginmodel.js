@@ -32,17 +32,16 @@
     };
     $scope.letmein = function() {
         if (validateDataEntered()) {
-            var promise = Auth.Login($scope.firstname, $scope.lastname, $scope.username, $scope.password);
-            promise.then(function(loginstatus) {
+            Auth.Login($scope.firstname, $scope.lastname, $scope.username, $scope.password).then(function (loginstatus) {
                 if (loginstatus.indexOf('Failed') != -1) {
                     swal("", loginstatus.data, "error");
                 } else {
                     Auth.SetCredentials(username, password);
                     var myuser = $rootScope.globals.currentUser.username;
-                    swal("", "Successfully Logged in as" + loginStatus, "error");
+                    swal("", "Successfully Logged in as" + myuser, "info");
+                    swal("", "Successfully Logged in as" + loginStatus.statusText, "error");
                 }
             });
-
         };
     };
     initialize();

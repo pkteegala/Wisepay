@@ -23,6 +23,9 @@ namespace Database
 
     public DateTime RoleExpirtyDate { get; set; }
     public Boolean IsActive { get; set; }
+    public Boolean IsCustomer { get; set; }
+    public Boolean IsCallCenterUSer { get; set; }
+
 
 
   }
