@@ -55,19 +55,18 @@ namespace Wisepay.Web.WebApi.Controller
     }
 
     [HttpPost]
-    [Route("adminuser/authenticate/{firstname}/{lastname}/{username}/{password}")]
-    public string AdminAuthenticate(string firstName,string lastName,string userName,string password)
+    [Route("adminuser/authenticate/{username}/{password}")]
+    public AdminUser AdminAuthenticate(string userName,string password)
     {
       try
       {
-        var result = this.unitofService.AdminUserService.AdminAuthenticate(firstName, lastName, userName, password);
-       return result == String.Empty ? "Failed to Login " :result ;
+        return this.unitofService.AdminUserService.AdminAuthenticate(userName, password);
         
       }
       catch (Exception exception)
       {
         _logger.Error(exception);
-        return "Failed" +  exception;
+        return null;
       }
     }
 

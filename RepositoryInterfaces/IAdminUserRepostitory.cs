@@ -13,6 +13,8 @@ namespace RepositoryInterfaces
     IList<AdminUser> GetAll();
     AdminUser GetById(Int32 id);
     AdminUser GetByAdminUser(AdminUser adminUser);
+    AdminUser GetByAdminLogInCredentials(string userName,string password);
+
 
     void Update(AdminUser course);
 

@@ -83,9 +83,9 @@ wisepaymodule.factory('wisepayService',
 (function () {
     'use strict';
     wisepaymodule.factory('Auth', Auth);
-    Auth.$inject = ['$http', '$cookies', '$rootScope', 'viewModelHelper'];
+    Auth.$inject = ['$http', '$cookies', '$rootScope', 'viewModelHelper','$q'];
 
-    function Auth($http, $cookies, $rootScope, viewModelHelper) {
+    function Auth($http, $cookies, $rootScope, viewModelHelper,$q) {
         var service = {};
 
         service.Login = Login;
@@ -95,19 +95,24 @@ wisepaymodule.factory('wisepayService',
         return service;
 
 
-        function Login(firstname, lastname, username, password) {
-            viewModelHelper.apiPost("api/adminuser/authenticate/" +firstname +"/" +lastname +"/" +username +"/" +password).then(function(result) {
-                    return result.data;
+        function Login(username, password) {
+            return $q(function(resolve) {
+                viewModelHelper.apiPost("api/adminuser/authenticate/"+ username + "/" + password, null, function (result) {
+                    resolve(result);
                 });
+            });
+           
         }
 
-        function SetCredentials(username, password) {
+        function SetCredentials(username, password, isCustomer, iscallCenteruser) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {
                 currentUser: {
                     username: username,
-                    authdata: authdata
+                    authdata: authdata,
+                    IsCustomer: isCustomer,
+                    IsCallCenterUSer:iscallCenteruser
                 }
             };
 

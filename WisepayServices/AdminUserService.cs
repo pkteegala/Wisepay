@@ -24,20 +24,9 @@ namespace WisepayServices
       return this.unitOfWork.AdminUserRepostitory.GetAll();
     }
 
-    public string AdminAuthenticate(string firstName, string lastName, string userName, string password)
+    public AdminUser AdminAuthenticate(string userName, string password)
     {
-      var adminuser=new AdminUser()
-                      {
-                        FirstName = firstName,
-                        LastName = lastName,
-                        UserName = userName,
-                        Password = password,
-                        Registereddate = new DateTime(),
-                        RoleExpirtyDate = new DateTime(),
-                        IsActive = true
-                      };
-      var adminUserfromDb = this.unitOfWork.AdminUserRepostitory.GetByAdminUser(adminuser);
-      return adminUserfromDb != null ? adminUserfromDb.UserName : String.Empty;
+      return this.unitOfWork.AdminUserRepostitory.GetByAdminLogInCredentials(userName, password);
     }
 
     public void Update(AdminUser admin)

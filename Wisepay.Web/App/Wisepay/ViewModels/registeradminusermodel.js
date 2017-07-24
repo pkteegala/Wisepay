@@ -78,7 +78,9 @@
                 Comments: $scope.userCommentsEntered,
                 Registereddate: $filter('date')(new Date(), 'yyyy-MM-dd'),
                 RoleExpirtyDate: selectedDate,
-                IsActive: true
+                IsActive: true,
+                IsCustomer: true,
+                IsCallCenterUSer:true
             };
 
             $.ajax({
@@ -87,11 +89,12 @@
                 url: "api/adminuser",
                 contentType: "application/json",
                 success: function (data) {
-                    if (data.indexOf('success') !=-1) {
-                        swal("Success!", data, "success");
+                    if (data.indexOf('Failed') != -1) {
+                        swal("!", data, "error");
                         initialize();
                     }
-                    swal("", data, "error");
+                    swal("Success", data, "success");
+                    initialize();
                 }
             });
             //resetPage();

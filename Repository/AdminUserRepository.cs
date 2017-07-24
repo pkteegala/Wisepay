@@ -37,6 +37,11 @@
      return this.Entities.FirstOrDefault(s => s.FirstName.Equals(adminUser.FirstName) && s.LastName.Equals(adminUser.LastName) && s.UserName.Equals(adminUser.UserName) && s.Password.Equals(adminUser.Password) && s.IsActive);
     }
 
+    public AdminUser GetByAdminLogInCredentials(string userName, string password)
+    {
+     return this.Entities.FirstOrDefault(s =>s.UserName.Equals(userName) && s.Password.Equals(password) && s.IsActive);
+
+    }
     public void Update(AdminUser admin)
     {
       this.Update(admin);

@@ -1,4 +1,4 @@
-﻿var commonModule = angular.module('common', ['ngRoute', 'ngCookies']);
+﻿var commonModule = angular.module('common', ['ngRoute', 'ngCookies','ng']);
 var mainModule = angular.module('main', ['common', 'ui.bootstrap']);
 
 
