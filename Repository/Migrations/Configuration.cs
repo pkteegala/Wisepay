@@ -10,7 +10,7 @@ namespace Repository
   {
     public Configuration()
     {
-      this.AutomaticMigrationsEnabled = true;
+      this.AutomaticMigrationsEnabled = false;
       this.AutomaticMigrationDataLossAllowed = false;
     }
 
