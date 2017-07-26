@@ -1,4 +1,5 @@
-﻿var wisepaymodule = angular.module('wisepay', ['common'])
+﻿/// <reference path="C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\Views/Home/WisepayLanding.cshtml" />
+var wisepaymodule = angular.module('wisepay', ['common'])
    .filter('split', function () {
        return function (input, splitChar, splitIndex) {
            // do some bounds checking here to ensure it has that index
@@ -126,6 +127,9 @@ wisepaymodule.factory('wisepayService',
         }
 
         function ClearCredentials() {
+            delete $rootScope.globals.currentUser;
+            delete $rootScope[currentUser];
+            delete $rootScope[globals];
             $rootScope.globals = {};
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';

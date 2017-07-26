@@ -28,9 +28,7 @@
                     swal("", "Login Failed!!!", "error");
                 } else {
                     Auth.SetCredentials($scope.username, $scope.password, loginstatus.data.isCustomer, loginstatus.data.isCallCenterUSer);
-                    var myuser = $rootScope.globals.currentUser.username;
-                    swal("", "Successfully Logged in as" + myuser, "info");
-                    swal("", "Successfully Logged in as" + loginStatus.statusText, "error");
+                    window.location.pathname = 'home/wisepaylanding';
                 }
             });
         };

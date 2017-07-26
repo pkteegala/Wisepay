@@ -46,16 +46,17 @@
                 <div align="center">
                     <button ng-click="goHome()">Home</button>
                     <button ng-click="gotoaboutus()">About Us</button>
-                    <button ng-click="gotoregisternewclient()">Registration</button>
-                    <button ng-click="gotosearch()">Search</button>
-                    <button ng-click="gotoprocesspayment()">Process Payment</button>
-                    <button ng-click="gotologin()">Login</button>
-                    <button ng-click="gotoregisteradminuser()">Register Admin</button>
+                    <button ng-if="iscustomer" ng-click="gotoregisternewclient()" display=none>Registration</button>
+                    <button ng-if="iscallcenteruser" ng-click="gotosearch()" display=none>Search</button>
+                    <button ng-if="iscallcenteruser" ng-click="gotoprocesspayment()" display=none>Process Payment</button>
+                    <button ng-if="showlogin" ng-click="gotologin()">Login</button>
+                    <button ng-if="showsignout" ng-click="signout()">SignOut</button>
+                    <button ng-if="iscallcenteruser" ng-click="gotoregisteradminuser()" display=none>Register Admin</button>
                 </div>
             </div>
             <div class="col d-flex align-items-center justify-content-end">
                 <div class="user " align="right">
-                    <strong> You are logged in as : {{$root.globals.currentuser.username}}</strong>@*@User.Identity.Name!*@
+                    <strong> You are logged in as : {{currentloggedinuser}}</strong>@*@User.Identity.Name!*@
                 </div>
             </div>
             <div align="center">
