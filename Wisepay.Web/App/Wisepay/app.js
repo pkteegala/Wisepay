@@ -127,9 +127,7 @@ wisepaymodule.factory('wisepayService',
         }
 
         function ClearCredentials() {
-            delete $rootScope.globals.currentUser;
-            delete $rootScope[currentUser];
-            delete $rootScope[globals];
+            //delete $rootScope.globals.currentUser;
             $rootScope.globals = {};
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';

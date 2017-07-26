@@ -3,7 +3,6 @@
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function () {
         $scope.pageheading = "Wisepay Login Page";
-        Auth.ClearCredentials();
     };
 
     $scope.redirecttoregister = function () {
