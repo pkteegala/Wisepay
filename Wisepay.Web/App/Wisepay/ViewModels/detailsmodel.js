@@ -21,5 +21,9 @@
 
     }, true);
 
+    $scope.proceedtopayment=function() {
+        viewModelHelper.navigateTo('payment');
+    }
+
     initialize();
 }]);

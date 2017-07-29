@@ -21,5 +21,10 @@ namespace Repository
     }
 
     public DbSet<AdminUser> AdminUsers { get; set; }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+      base.OnModelCreating(modelBuilder);
+    }
   }
 }
