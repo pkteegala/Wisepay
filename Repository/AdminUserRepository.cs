@@ -42,10 +42,6 @@
      return this.Entities.FirstOrDefault(s =>s.UserName.Equals(userName) && s.Password.Equals(password) && s.IsActive);
 
     }
-    public void Update(AdminUser admin)
-    {
-      this.Update(admin);
-    }
 
     public AdminUser AddAdminUser(AdminUser newAdminUser)
     {

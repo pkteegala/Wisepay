@@ -21,10 +21,7 @@ namespace Repository
     }
 
     public DbSet<AdminUser> AdminUsers { get; set; }
+    public DbSet<Institute> Institutes { get; set; }
 
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-      base.OnModelCreating(modelBuilder);
-    }
   }
 }

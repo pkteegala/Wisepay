@@ -11,6 +11,8 @@ namespace UnitOfService
   public interface IUnitOfService
   {
     IAdminUserService AdminUserService { get; }
+    IInstituteService InstituteService { get; }
+
 
     void SaveChanges();
   }

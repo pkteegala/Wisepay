@@ -15,9 +15,6 @@ namespace RepositoryInterfaces
     AdminUser GetByAdminUser(AdminUser adminUser);
     AdminUser GetByAdminLogInCredentials(string userName,string password);
 
-
-    void Update(AdminUser course);
-
     AdminUser AddAdminUser(AdminUser newAdminUser);
   }
 }

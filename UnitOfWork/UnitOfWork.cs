@@ -15,6 +15,8 @@ namespace UnitOfWork
     private Boolean disposed;
 
     private IAdminUserRepostitory adminUserRepository;
+    private IInstituteRepostitory instituteRepostitory;
+
     public UnitOfWork(string connectionstring)
     {
       this.context = new WisepayContext(connectionstring);
@@ -26,6 +28,13 @@ namespace UnitOfWork
       {
         return this.adminUserRepository ?? (this.adminUserRepository = new AdminUserRepository(this.context));
       } 
+    }
+    public IInstituteRepostitory InstituteRepostitory
+    {
+      get
+      {
+        return this.instituteRepostitory ?? (this.instituteRepostitory = new InstituteRepository(this.context));
+      }
     }
 
     public void SaveChanges()
