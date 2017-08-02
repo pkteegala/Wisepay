@@ -54,7 +54,7 @@
               });
     }
     gettransactiondetails = function (memberId) {
-        viewModelHelper.apiGet('api/transactions/getbymember' +memberId, null,
+        viewModelHelper.apiGet('api/transactions/getbymember/' +memberId, null,
               function(result) {
                   if (result.data == undefined || result.data.length == 0) {
                       swal("Oops!!",
