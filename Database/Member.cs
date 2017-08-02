@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Database
 {
-  public class User
+  public class Member
   {
-    public User()
+    public Member()
     {
       this.TransactionsList = new List<Transaction>();
     }

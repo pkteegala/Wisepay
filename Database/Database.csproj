@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Enums\PaymentStatuses.cs" />
     <Compile Include="Transaction.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Member.cs" />
     <Compile Include="Institute.cs" />
     <Compile Include="AdminUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

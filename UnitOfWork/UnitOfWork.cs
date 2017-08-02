@@ -16,6 +16,9 @@ namespace UnitOfWork
 
     private IAdminUserRepostitory adminUserRepository;
     private IInstituteRepostitory instituteRepostitory;
+    private IMemberRepository memberRepository;
+    private ITransactionRepository transactionRepository;
+
 
     public UnitOfWork(string connectionstring)
     {
@@ -34,6 +37,21 @@ namespace UnitOfWork
       get
       {
         return this.instituteRepostitory ?? (this.instituteRepostitory = new InstituteRepository(this.context));
+      }
+    }
+
+    public IMemberRepository MemberRepository
+    {
+      get
+      {
+        return this.memberRepository ?? (this.memberRepository = new MemberRepository(this.context));
+      }
+    }
+    public ITransactionRepository TransactionRepository
+    {
+      get
+      {
+        return this.transactionRepository ?? (this.transactionRepository = new TransactionRepository(this.context));
       }
     }
 

@@ -14,9 +14,9 @@ namespace Database
     }
     public Int32 Id { get; set; }
 
-    public int  UserId { get; set; }
+    public int  MemberId { get; set; }
 
-    public virtual User User { get; set; }
+    public virtual Member Member { get; set; }
 
     public string TransactionDoneBy { get; set; }
 

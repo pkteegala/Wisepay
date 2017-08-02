@@ -6,6 +6,9 @@
     {
     IAdminUserRepostitory AdminUserRepostitory { get; }
     IInstituteRepostitory InstituteRepostitory { get; }
+    IMemberRepository MemberRepository{ get; }
+    ITransactionRepository TransactionRepository{ get; }
+
 
     void SaveChanges();
 

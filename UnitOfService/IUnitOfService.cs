@@ -13,6 +13,8 @@ namespace UnitOfService
     IAdminUserService AdminUserService { get; }
     IInstituteService InstituteService { get; }
 
+    IMemberService MemberService{ get; }
+    ITransactionService TransactionService{ get; }
 
     void SaveChanges();
   }

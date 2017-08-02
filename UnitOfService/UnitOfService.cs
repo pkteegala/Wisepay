@@ -17,6 +17,9 @@ namespace UnitOfService
     private IAdminUserService adminUserService;
 
     private IInstituteService instituteService;
+    private IMemberService memberService;
+    private ITransactionService transactionService;
+
 
     private readonly IUnitOfWork unitOfWork;
 
@@ -27,7 +30,8 @@ namespace UnitOfService
 
     public IAdminUserService AdminUserService => this.adminUserService ?? (this.adminUserService = new AdminUserService(this.unitOfWork));
     public IInstituteService InstituteService => this.instituteService ?? (this.instituteService = new InstituteService(this.unitOfWork));
-
+    public IMemberService MemberService => this.memberService ?? (this.memberService = new MemberService(this.unitOfWork));
+    public ITransactionService TransactionService => this.transactionService ?? (this.transactionService = new TransactionService(this.unitOfWork));
 
     public void SaveChanges()
     {

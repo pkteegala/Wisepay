@@ -22,6 +22,9 @@ namespace Repository
 
     public DbSet<AdminUser> AdminUsers { get; set; }
     public DbSet<Institute> Institutes { get; set; }
+    public DbSet<Member> Members { get; set; }
+    public DbSet<Transaction> Transactions { get; set; }
+
 
   }
 }

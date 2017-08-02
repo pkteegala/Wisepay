@@ -229,6 +229,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="WebApi\Controller\TransactionsController.cs" />
+    <Compile Include="WebApi\Controller\MembersController.cs" />
     <Compile Include="WebApi\Controller\InstituteController.cs" />
     <Compile Include="WebApi\Controller\AdminUserController.cs" />
   </ItemGroup>

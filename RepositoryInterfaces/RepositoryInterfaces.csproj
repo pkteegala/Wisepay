@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMemberRepository.cs" />
+    <Compile Include="ITransactionRepository.cs" />
     <Compile Include="IInstituteRepostitory.cs" />
     <Compile Include="IAdminUserRepostitory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

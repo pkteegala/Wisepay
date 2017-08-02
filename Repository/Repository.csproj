@@ -51,7 +51,9 @@
   <ItemGroup>
     <Compile Include="InstituteRepository.cs" />
     <Compile Include="AdminUserRepository.cs" />
+    <Compile Include="MemberRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="TransactionRepository.cs" />
     <Compile Include="WisepayContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
