@@ -4,7 +4,7 @@
         $scope.viewModelHelper = viewModelHelper;
         $scope.IsRedirectionVisible = true;
         $scope.IspaymentDivVisible = false;
-
+        var filldetailsofpage;
 
         var initialize = function() {
             $scope.pageheading = "Wisepay Insitute Details Page";
@@ -12,7 +12,12 @@
             ($routeParams.instituteDetails != null || $routeParams.instituteDetails != undefined)) {
                 $scope.IsRedirectionVisible = false;
                 $scope.IspaymentDivVisible = true;
+
+                filldetailsofpage();
+
             }
+        };
+        filldetailsofpage = function() {
             $scope.candidatenumber = $routeParams.candidatedetails.id;
             $scope.candidatename = $routeParams.candidatedetails.name;
             $scope.candidateaddress = $routeParams.candidatedetails.comments;
@@ -21,9 +26,11 @@
             $scope.institutenumber = $routeParams.instituteDetails.id;
             $scope.institutename = $routeParams.instituteDetails.name;
             $scope.instituteaddress = $routeParams.instituteDetails.address;
-
         };
-
+        var resetrouteparams = function() {
+             $routeParams.candidatedetails = '';
+                  $routeParams.instituteDetails = '';
+        }
         var validateDataEntered = function() {
             if ($scope.paymentamount == undefined || $scope.paymentamount.length == 0) {
                 swal("", "'Please enter valid payment amount!", "warning");
@@ -61,7 +68,8 @@
                             swal("!", data, "error");
                         }
                         swal("", 'Payment Successfull', 'success');
-                         viewModelHelper.navigateTo('home');
+                        resetrouteparams();
+                        viewModelHelper.navigateTo('home');
                     }
                 });
             };
@@ -78,11 +86,10 @@
                 closeOnConfirm: false
             },
               function () {
-                  $routeParams.candidatedetails = '';
-                  $routeParams.instituteDetails = '';
+                  resetrouteparams();
               });
         };
-
+       
         initialize();
     }
 ]);

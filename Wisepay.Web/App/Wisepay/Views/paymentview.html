@@ -3,19 +3,19 @@
         <h2>Welcome to our {{pageheading}}.</h2><br/>
     </div>
     <div ng-show="IsRedirectionVisible">
-        <span style="color: red" align="center">Please Search for a candidate from Search tab and navigate to this page by entering required details</span>
+        <span style="color: red;background-color: burlywood" align="center">Please Search for a candidate from Search tab and navigate to this page by entering required details</span>
     </div>
     <div ng-show="IspaymentDivVisible">
         <div align="left" style="float: left; width: 500px; height: 300px; background-color: burlywood">
             <form id="paymentform" ali>
                 <label>Candidate ID: {{candidatenumber}}</label><br />
                 <label> Name of Candidate: {{candidatename}}</label><br />
-                <label> Address: {{candidateaddress}}</label><br />
-                <label ng-model="paymentamount" ng-pattern="/^(0*[1-9]+0*)+$/"> Amount:</label><br/>>
+                <label> Address: {{candidateaddress}}</label>
+                <label ng-model="paymentamount" ng-pattern="/^(0*[1-9]+0*)+$/"> Amount:</label><br/>
+                <input type="number" only-digits step="any" class="form-control" name="input" ng-model="lastname"
+                       placeholder="enter amount" required/><br/><br/>
                 <label for="">Additional Comments</label>
                 <textarea id="paymentrelatedcomments" ng-model="paymentrelatedcomments" name="" cols="20" rows="10" class="form-control"></textarea>
-                <input type="number" only-digits step="any" class="form-control" name="input" ng-model="lastname"
-                       placeholder="enter amount" required /><br /><br />
                 <button class="btn btn-go" type="submit" ng-click="pay()" style="background-color: orangered; position: relative;">Pay Now</button>
                 <button class="btn btn-go" type="submit" ng-click="cancel" style="background-color: Red; position: relative;">Cancel</button>
             </form>
