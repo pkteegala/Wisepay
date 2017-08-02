@@ -112,3 +112,5 @@ C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Logging.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\Logging.pdb
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\EFRepository.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\EFRepository.pdb
+C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\ViewModels.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\Wisepay.Web\bin\ViewModels.pdb

@@ -11,3 +11,5 @@ C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\EFRe
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\EntityFramework.dll
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\EFRepository.pdb
 C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\EntityFramework.xml
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\ViewModels.dll
+C:\Srinivas\TestProjects\Wisepay\Wisepay\WisepayServiceInterfaces\bin\Debug\ViewModels.pdb

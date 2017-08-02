@@ -11,6 +11,8 @@ namespace Wisepay.Web.WebApi.Controller
 
   using UnitOfService;
 
+  using ViewModels;
+
   [RoutePrefix("api")]
   public class MembersController : ApiController
   {
@@ -25,12 +27,26 @@ namespace Wisepay.Web.WebApi.Controller
     }
 
     [HttpGet]
-    [Route("members/get")]
-    public List<Member> GetAllMembers(int instituteId)
+    [Route("members/get/{instituteId}")]
+    public List<MemberViewModel> GetAllMembers(int instituteId)
     {
       try
       {
         return this.unitofService.MemberService.GetByInstituteId(instituteId).ToList();
+      }
+      catch (Exception exception)
+      {
+        _logger.Error(exception);
+        return null;
+      }
+    }
+    [HttpGet]
+    [Route("member/getdetails/{memberId}")]
+    public MemberViewModel GetMemberDetails(int memberId)
+    {
+      try
+      {
+        return this.unitofService.MemberService.GetById(memberId);
       }
       catch (Exception exception)
       {

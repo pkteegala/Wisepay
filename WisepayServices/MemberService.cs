@@ -9,6 +9,8 @@ namespace WisepayServices
 
   using UnitOfWork;
 
+  using ViewModels;
+
   using WisepayServiceInterfaces;
 
   public class MemberService : IMemberService
@@ -26,15 +28,38 @@ namespace WisepayServices
 
     }
 
-    public Member GetById(int id)
+    public MemberViewModel GetById(int id)
     {
-      return this.unitOfWork.MemberRepository.GetById(id);
+      var resultFromDb = this.unitOfWork.MemberRepository.GetById(id);
+      return new MemberViewModel()
+               {
+        Id = resultFromDb.Id,
+        FirstName = resultFromDb.FirstName,
+        LastName = resultFromDb.LastName,
+        Comments = resultFromDb.Comments,
+        Registered = resultFromDb.Registereddate,
+        MembershipExpiryDate = resultFromDb.MembershipExpirtyDate
+      };
 
     }
-    public IList<Member> GetByInstituteId(int instituteId)
+    public IList<MemberViewModel> GetByInstituteId(int instituteId)
     {
-      return this.unitOfWork.MemberRepository.GetByInstituteId(instituteId);
-
+      var output=new List<MemberViewModel>();
+      var resultFromDb= this.unitOfWork.MemberRepository.GetByInstituteId(instituteId);
+      foreach (var member in resultFromDb)
+      {
+        output.Add(
+          new MemberViewModel()
+            {
+              Id = member.Id,
+              FirstName = member.FirstName,
+              LastName = member.LastName,
+              Comments = member.Comments,
+              Registered = member.Registereddate,
+              MembershipExpiryDate = member.MembershipExpirtyDate
+            });
+      }
+      return output;
     }
     public Member GetByName(int instituteId, string firstname, string lastname)
     {

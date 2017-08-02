@@ -55,6 +55,10 @@
       <Project>{ef10ec24-1945-4085-8752-520d3b2f0f9d}</Project>
       <Name>RepositoryInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{93B36E38-93F8-4F50-8860-AEA8DB65F3BC}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

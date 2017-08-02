@@ -9,6 +9,8 @@ namespace WisepayServices
 
   using UnitOfWork;
 
+  using ViewModels;
+
   using WisepayServiceInterfaces;
 
   public class TransactionService : ITransactionService
@@ -20,9 +22,24 @@ namespace WisepayServices
       this.unitOfWork = unitOfWork;
     }
 
-    public IList<Transaction> GetAll(int memberId)
+    public IList<TransactionViewModel> GetAll(int memberId)
     {
-      return this.unitOfWork.TransactionRepository.GetAll(memberId);
+      var output=new List<TransactionViewModel>();
+      var resultFromDb= this.unitOfWork.TransactionRepository.GetAll(memberId);
+      foreach (var transaction in resultFromDb)
+      {
+        output.Add(new TransactionViewModel()
+                     {
+                       Id = transaction.Id,
+                       DoneBy = transaction.TransactionDoneBy,
+                       Date=transaction.TransactionDate,
+                       Amount = transaction.Amount,
+                       PayPalRef = transaction.PaymentGuid,
+                       Ref = transaction.PaymentRef,
+                       Status = transaction.PaymentStatus
+                     });
+      }
+      return output;
     }
 
     public Transaction GetByPaymentRef(string paymentRef)

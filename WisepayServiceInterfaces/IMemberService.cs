@@ -5,12 +5,14 @@ namespace WisepayServiceInterfaces
 {
   using Database;
 
+  using ViewModels;
+
   public interface IMemberService
   {
     IList<Member> GetAll();
-    Member GetById(Int32 id);
+    MemberViewModel GetById(Int32 id);
 
-    IList<Member> GetByInstituteId(int instituteId);
+    IList<MemberViewModel> GetByInstituteId(int instituteId);
     Member GetByName(int instituteId, string firstname, string lastname);
     string AddMember(Member newMemberForInstitute);
   }

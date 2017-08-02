@@ -1,6 +1,7 @@
 ﻿namespace Repository
 {
   using System.Collections.Generic;
+  using System.Data.Entity;
   using System.Linq;
 
   using Database;
@@ -21,7 +22,7 @@
     //}
    public IList<Institute> GetAll()
     {
-      return this.Entities.ToList();
+      return this.Entities.Include(r=>r.MembersList).ToList();
     }
    public Institute GetById(int id)
     {
@@ -34,7 +35,7 @@
     }
     public Institute AddInstitute(Institute institute)
     {
-      throw new System.NotImplementedException();
+      return this.Create(institute);
     }
     
     

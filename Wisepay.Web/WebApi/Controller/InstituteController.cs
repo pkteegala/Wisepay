@@ -11,6 +11,10 @@ namespace Wisepay.Web.WebApi.Controller
 
   using UnitOfService;
 
+  using ViewModels;
+
+  using Wisepay.Web.Models;
+
   [RoutePrefix("api")]
   public class InstituteController : ApiController
   {
@@ -26,11 +30,12 @@ namespace Wisepay.Web.WebApi.Controller
 
     [HttpGet]
     [Route("institutes/get")]
-    public List<Institute> GetAllInstitutes()
+    public List<InstituteViewModel> GetAllInstitutes()
     {
       try
       {
         return this.unitofService.InstituteService.GetAll().ToList();
+         
       }
       catch (Exception exception)
       {

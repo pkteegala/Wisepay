@@ -1,13 +1,12 @@
-﻿using System;
-
-namespace WisepayServices
+﻿namespace WisepayServices
 {
-  using System.Collections;
   using System.Collections.Generic;
 
   using Database;
 
   using UnitOfWork;
+
+  using ViewModels;
 
   using WisepayServiceInterfaces;
 
@@ -19,9 +18,20 @@ namespace WisepayServices
     {
       this.unitOfWork = unitOfWork;
     }
-    public IList<Institute> GetAll()
+    public IList<InstituteViewModel> GetAll()
     {
-      return this.unitOfWork.InstituteRepostitory.GetAll();
+      var output=new List<InstituteViewModel>();
+      var resultFromDb= this.unitOfWork.InstituteRepostitory.GetAll();
+      foreach (var institute in resultFromDb)
+      {
+        output.Add(new InstituteViewModel()
+                     {
+                       Id = institute.Id,
+                       Name = institute.Name,
+                       Address = institute.Address
+                     });
+      }
+      return output;
     }
     public Institute GetById(int id)
     {

@@ -11,6 +11,8 @@ namespace Wisepay.Web.WebApi.Controller
 
   using UnitOfService;
 
+  using ViewModels;
+
   [RoutePrefix("api")]
   public class TransactionsController : ApiController
   {
@@ -25,8 +27,8 @@ namespace Wisepay.Web.WebApi.Controller
     }
 
     [HttpGet]
-    [Route("transactions/get")]
-    public List<Transaction> GetAllTransactions(int memberId)
+    [Route("transactions/getbymember")]
+    public List<TransactionViewModel> GetAllTransactions(int memberId)
     {
       try
       {

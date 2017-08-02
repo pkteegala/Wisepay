@@ -10,7 +10,7 @@ namespace Database
   {
     public Institute()
     {
-      UsersList = new List<Member>();
+      MembersList = new List<Member>();
     }
     public Int32 Id { get; set; }
     public string Name { get; set; }
@@ -27,7 +27,7 @@ namespace Database
     public DateTime MembershipExpirtyDate { get; set; }
     public Boolean IsActive { get; set; }
 
-    public virtual ICollection<Member> UsersList { get; set; }
+    public virtual ICollection<Member> MembersList { get; set; }
 
   }
 }

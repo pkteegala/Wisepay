@@ -63,6 +63,10 @@
       <Project>{3d5150be-c55a-4d15-a59d-593e2fbdf329}</Project>
       <Name>UnitOfWork</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{93B36E38-93F8-4F50-8860-AEA8DB65F3BC}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WisepayServiceInterfaces\WisepayServiceInterfaces.csproj">
       <Project>{9fb00084-203a-47cd-906b-542691151312}</Project>
       <Name>WisepayServiceInterfaces</Name>

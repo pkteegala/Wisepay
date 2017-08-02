@@ -5,9 +5,11 @@ namespace WisepayServiceInterfaces
 {
   using Database;
 
+  using ViewModels;
+
   public interface IInstituteService
   {
-    IList<Institute> GetAll();
+    IList<InstituteViewModel> GetAll();
 
     Institute GetById(Int32 id);
 
