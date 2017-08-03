@@ -108,11 +108,14 @@
                 closeOnConfirm: true
             },
               function () {
-                  mysharedservice.clearDetails();
-                  viewModelHelper.navigateTo('home');
+                  resetpaymentdetails();
+                  redirecttohome();
+              mysharedservice.clearDetails();
               });
         };
-       
+       var redirecttohome=function() {
+           viewModelHelper.navigateTo('home');
+       }
         initialize();
     }
 ]);

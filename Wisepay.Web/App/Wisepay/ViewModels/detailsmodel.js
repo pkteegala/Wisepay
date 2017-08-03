@@ -28,7 +28,7 @@
          viewModelHelper.apiGet('api/institutes/get', null, function(result) {
              if(result.data == undefined || result.data.length == 0) {
                     swal("Oops!!",
-                        "something went wrong with data from DB. No institutes returned. Contact Admin " + result.statusText,
+                        "something went wrong with data from DB. No institutes returned. Contact Admin / Go to Home " + result.statusText,
                         "info");
                     $('#institutesDropDown').hide();
                     $('#candidatesdropdown').hide();
@@ -49,6 +49,7 @@
                     $('#candidatesdropdown').hide();
                 } else {
                     $scope.mycandidateslist = result.data;
+                    $('#candidatesdropdown').show();
                 }
             });
     }
@@ -86,7 +87,7 @@
         
     }
     $scope.proceedtopayment = function () {
-        if (validate) {
+        if (validate()) {
             mysharedservice.setinstituteDetails($scope.institutename.id,
                 $scope.institutename.name,
                 $scope.institutename.address);
