@@ -9,7 +9,7 @@
     var initialize = function () {
         $scope.pageHeading = "Wisepay Section";
         //|| $rootScope.globals.currentUser != null || $rootScope.globals.currentUser != ""
-        if ($rootScope.globals.currentUser != undefined) {
+        if ($rootScope.globals.currentUser != undefined || $rootScope.globals.currentUser !=null) {
             $scope.currentloggedinuser = $rootScope.globals.currentUser.username;
             $scope.iscustomer = $rootScope.globals.currentUser.IsCustomer;
             $scope.iscallcenteruser = $rootScope.globals.currentUser.IsCallCenterUSer;

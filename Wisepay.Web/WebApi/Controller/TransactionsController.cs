@@ -27,7 +27,7 @@ namespace Wisepay.Web.WebApi.Controller
     }
 
     [HttpGet]
-    [Route("transactions/getbymember")]
+    [Route("transactions/getbymember/{memberId}")]
     public List<TransactionViewModel> GetAllTransactions(int memberId)
     {
       try

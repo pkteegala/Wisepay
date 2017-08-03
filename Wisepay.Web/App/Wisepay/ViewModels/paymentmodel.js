@@ -1,5 +1,5 @@
-﻿wisepaymodule.controller("paymentmodel", ['$scope', '$routeParams', 'viewModelHelper','Auth','$location','$rootScope',
-    function ($scope, $routeParams, viewModelHelper, Auth, $location, $rootScope) {
+﻿wisepaymodule.controller("paymentmodel", ['$scope', '$routeParams', 'viewModelHelper', 'mysharedservice', '$location', '$rootScope',
+    function ($scope, $routeParams, viewModelHelper,mysharedservice, $location, $rootScope) {
 
         $scope.viewModelHelper = viewModelHelper;
         $scope.IsRedirectionVisible = true;
@@ -8,8 +8,8 @@
 
         var initialize = function() {
             $scope.pageheading = "Wisepay Insitute Details Page";
-            if (($routeParams.candidatedetails != null || $routeParams.candidatedetails != undefined) &&
-            ($routeParams.instituteDetails != null || $routeParams.instituteDetails != undefined)) {
+            if (($rootScope.currentcandidateDetails != null || $rootScope.currentcandidateDetails != undefined) &&
+            ($rootScope.currentinstituteDetails != null || $rootScope.currentinstituteDetails != undefined)) {
                 $scope.IsRedirectionVisible = false;
                 $scope.IspaymentDivVisible = true;
 
@@ -18,18 +18,23 @@
             }
         };
         filldetailsofpage = function() {
-            $scope.candidatenumber = $routeParams.candidatedetails.id;
-            $scope.candidatename = $routeParams.candidatedetails.name;
-            $scope.candidateaddress = $routeParams.candidatedetails.comments;
+            $scope.candidatenumber = $rootScope.currentcandidateDetails.id;
+            $scope.candidatename = $rootScope.currentcandidateDetails.candidatename;
+            $scope.candidateaddress = $rootScope.currentcandidateDetails.candidatecomments;
 
 
-            $scope.institutenumber = $routeParams.instituteDetails.id;
-            $scope.institutename = $routeParams.instituteDetails.name;
-            $scope.instituteaddress = $routeParams.instituteDetails.address;
+            $scope.institutenumber = $rootScope.currentinstituteDetails.id;
+            $scope.institutename = $rootScope.currentinstituteDetails.institutename;
+            $scope.instituteaddress = $rootScope.currentinstituteDetails.instituteaddress;
         };
-        var resetrouteparams = function() {
-             $routeParams.candidatedetails = '';
-                  $routeParams.instituteDetails = '';
+        var resetpaymentdetails=function() {
+            $scope.paymentamount = '';
+            $scope.paymentrelatedcomments = '';
+            $scope.cardnumber = '';
+            $scope.cardexpirydatemonth = '';
+            $scope.cardexpirydateyear = '';
+            $scope.cardcvv = '';
+
         }
         var validateDataEntered = function() {
             if ($scope.paymentamount == undefined || $scope.paymentamount.length == 0) {
@@ -38,6 +43,22 @@
             }
             if ($scope.paymentrelatedcomments == undefined || $scope.paymentrelatedcomments.length == 0) {
                 swal("", "'Please enter payment related comments!", "warning");
+                return false;
+            }
+            if ($scope.cardnumber == undefined || $scope.cardnumber.length == 0) {
+                swal("", "'Please enter long card number!", "warning");
+                return false;
+            }
+            if ($scope.cardexpirydatemonth == undefined || $scope.cardexpirydatemonth.length == 0) {
+                swal("", "'Please enter card expiry month!", "warning");
+                return false;
+            }
+            if ($scope.cardexpirydateyear == undefined || $scope.cardexpirydateyear.length == 0) {
+                swal("", "'Please enter card expiry year!", "warning");
+                return false;
+            }
+            if ($scope.cardcvv == undefined || $scope.cardcvv.length == 0) {
+                swal("", "'Please enter CVV code for card!", "warning");
                 return false;
             }
             return true;
@@ -68,7 +89,8 @@
                             swal("!", data, "error");
                         }
                         swal("", 'Payment Successfull', 'success');
-                        resetrouteparams();
+                        resetpaymentdetails();
+                        mysharedservice.clearDetails();
                         viewModelHelper.navigateTo('home');
                     }
                 });
@@ -83,10 +105,11 @@
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
                 confirmButtonText: "Cancel Anyway!",
-                closeOnConfirm: false
+                closeOnConfirm: true
             },
               function () {
-                  resetrouteparams();
+                  mysharedservice.clearDetails();
+                  viewModelHelper.navigateTo('home');
               });
         };
        

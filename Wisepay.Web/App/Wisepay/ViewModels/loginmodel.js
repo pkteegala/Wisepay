@@ -1,4 +1,4 @@
-﻿wisepaymodule.controller("loginmodel", ['$scope', '$routeParams', 'viewModelHelper', 'Auth', '$location', '$rootScope', function ($scope, $routeParams, viewModelHelper, Auth, $location, $rootScope) {
+﻿wisepaymodule.controller("loginmodel", ['$scope', '$routeParams', 'viewModelHelper', 'Auth', function ($scope, $routeParams, viewModelHelper, Auth) {
 
     $scope.viewModelHelper = viewModelHelper;
     var initialize = function () {

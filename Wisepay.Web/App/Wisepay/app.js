@@ -83,6 +83,41 @@ wisepaymodule.factory('wisepayService',
     });
 (function () {
     'use strict';
+    wisepaymodule.factory('mysharedservice', mysharedservice);
+    mysharedservice.$inject = ['$rootScope'];
+
+    function mysharedservice($rootScope) {
+        var myservice = {};
+
+        myservice.setinstituteDetails = setinstituteDetails;
+        myservice.setcandidatedetails = setcandidatedetails;
+        myservice.clearDetails = clearDetails;
+
+        return myservice;
+
+        function setinstituteDetails(instituteid, institutename, instituteaddress) {
+            $rootScope.currentinstituteDetails = {
+                id: instituteid,
+                institutename: institutename,
+                instituteaddress: instituteaddress
+            };
+        }
+
+        function setcandidatedetails(candidateid, candidatename, candidatecomments) {
+            $rootScope.currentcandidateDetails = {
+                id: candidateid,
+                candidatename: candidatename,
+                candidatecomments: candidatecomments
+            };
+        }
+        function clearDetails() {
+            delete $rootScope.currentinstituteDetails;
+            delete $rootScope.currentcandidateDetails;
+        }
+    };
+})();
+(function () {
+    'use strict';
     wisepaymodule.factory('Auth', Auth);
     Auth.$inject = ['$http', '$cookies', '$rootScope', 'viewModelHelper','$q'];
 
@@ -122,13 +157,19 @@ wisepaymodule.factory('wisepayService',
 
             // store user details in globals cookie that keeps user logged in for 1 week (or until they logout)
             var cookieExp = new Date();
-            cookieExp.setDate(cookieExp.getDate() + 7);
+            cookieExp.setDate(cookieExp.getDate()+7);
             $cookies.putObject('globals', $rootScope.globals, { expires: cookieExp });
         }
 
         function ClearCredentials() {
-            delete $rootScope.globals.currentUser;
-            $rootScope.globals = {};
+
+           delete $rootScope.globals.currentUser;
+           delete $rootScope.globals;
+
+            //$rootScope = $rootScope.$new(true);
+            //$rootScope.globals.currentUser = undefined;
+            //$rootScope.globals = {};
+
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
         }
@@ -219,24 +260,6 @@ wisepaymodule.factory('wisepayService',
         }
     };
 })();
-//wisepaymodule.run(['$rootScope', '$location', 'Auth', 'viewModelHelper', function ($rootScope, $location, Auth, viewModelHelper) {
-//    $rootScope.$on('$routeChangeStart',
-//        function (event) {
-
-//            if (!Auth.isLoggedIn()) {
-//                console.log('DENY : Redirecting to Login');
-//                event.preventDefault();
-//                $location.path('/login');
-//                viewModelHelper.navigateTo('login');
-//            } else {
-//                console.log('ALLOW');
-//                $location.path('/home');
-//                viewModelHelper.navigateTo('/home');
-//            }
-//        });
-//}
-//]);
-
 (function (myApp) {
     var wisepayService = function ($http, $location,
         viewModelHelper, statusDropdown) {
