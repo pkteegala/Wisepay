@@ -5,6 +5,8 @@
         $scope.IsRedirectionVisible = true;
         $scope.IspaymentDivVisible = false;
         var filldetailsofpage;
+        var redirecttohome;
+
 
         var initialize = function () {
             $scope.pageheading = "Wisepay Insitute Details Page";
@@ -82,8 +84,8 @@
                     TransactionDate: $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss'),
                     Amount: $scope.paymentamount,
                     Comments: $scope.paymentrelatedcomments,
-                    PaymentGuid: 'XXFGHDK',
-                    PaymentRef: 'FIRSTTRANSACTION',
+                    PaymentGuid: 'XXFGHDKg',
+                    PaymentRef: 'SECONDTRANSACTION',
                     PaymentStatus: 'SUCCESS'
 
                 };
@@ -101,7 +103,7 @@
                         swal("Success", 'Payment Successfull', 'success');
                         resetpaymentdetails();
                         mysharedservice.clearDetails();
-                        viewModelHelper.navigateTo('home');
+                        redirecttohome();
                     }
                 });
             };
@@ -123,9 +125,10 @@
                  mysharedservice.clearDetails();
              });
         };
-        var redirecttohome = function () {
+        redirecttohome = function() {
             viewModelHelper.navigateTo('home');
-        }
+            window.location.pathname = 'home/wisepaylanding';
+        };
         initialize();
     }
 ]);
