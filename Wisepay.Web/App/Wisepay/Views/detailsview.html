@@ -28,58 +28,58 @@
                         </div>
                     </div>
                 </div>
-                <br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br />
                 <div class="col-6">
                     <div class="form-group">
                         <div class="row" id="searchresults" ng-model="candidatedetails">
-                            <strong style="color: brown"> Candidate Details</strong><br /><br />
+                            <strong style="color: brown"> Candidate Details</strong><br/><br/>
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Comments</th>
-                                    </tr>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Comments</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="transaction in transactionslist">
-                                        <td>{{candidatedetails.id}}</td>
-                                        <td>{{candidatedetails.firstName}} {{candidatedetails.lastName}}</td>
-                                        <td>{{candidatedetails.comments}}</td>
-                                    </tr>
+                                <tr ng-repeat="transaction in transactionslist">
+                                    <td>{{candidatedetails.id}}</td>
+                                    <td>{{candidatedetails.firstName}} {{candidatedetails.lastName}}</td>
+                                    <td>{{candidatedetails.comments}}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                </div>
+                </div><br /><br /><br/>
+                <div id="transactionhistorymessage" style="color: red">{{transactionhistorymessage}}</div>
                 <div id="transactiondetailsDiv">
-                    <strong style="color: brown"> Transaction History</strong><br/><br/>
-                    <div id="transactionhistorymessage" style="color: red">{{transactionhistorymessage}}</div>
+                    <strong style="color: brown"> Transaction History</strong><br /><br />
                     <div class="card-block">
                         <table class="table table-hover">
                             <thead>
-                                <tr>
-                                    <th>Status</th>
-                                    <th>PaypalRef</th>
-                                    <th>Ref</th>
-                                    <th>Amount</th>
-                                    <th>Transaction Date</th>
-                                    <th>Done By</th>
-                                </tr>
+                            <tr>
+                                <th>Status</th>
+                                <th>PaypalRef</th>
+                                <th>Ref</th>
+                                <th>Amount</th>
+                                <th>Transaction Date</th>
+                                <th>Done By</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="transaction in transactionslist">
-                                    <td>{{transaction.status}}</td>
-                                    <td>{{transaction.payPalRef}}</td>
-                                    <td>{{transaction.ref}}</td>
-                                    <td>{{ transaction.amount }}</td>
-                                    <td>{{transaction.date | date: 'dd/MM/yyyy' }}</td>
-                                    <td>{{ transaction.doneBy }}</td>
-                                </tr>
+                            <tr ng-repeat="transaction in transactionslist">
+                                <td>{{transaction.status}}</td>
+                                <td>{{transaction.payPalRef}}</td>
+                                <td>{{transaction.ref}}</td>
+                                <td>{{ transaction.amount }}</td>
+                                <td>{{transaction.date | date: 'dd/MM/yyyy' }}</td>
+                                <td>{{ transaction.doneBy }}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div><br /><br /><br/>
                 <div class="row">
                     <p class="text-center">
                         <button class="btn btn-go" type="submit" ng-click="proceedtopayment()" style="background-color: orangered">Proceed To Payment --></button>
