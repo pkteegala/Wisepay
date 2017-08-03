@@ -43,7 +43,7 @@ namespace Wisepay.Web.WebApi.Controller
 
     [HttpPost]
     [Route("transactions/add")]
-    public Transaction Add([FromBody] Transaction newTransaction)
+    public string Add([FromBody] Transaction newTransaction)
     {
       try
       {
@@ -52,7 +52,7 @@ namespace Wisepay.Web.WebApi.Controller
       catch (Exception exception)
       {
         _logger.Error(exception);
-        return null;
+        return exception.ToString();
       }
     }
 

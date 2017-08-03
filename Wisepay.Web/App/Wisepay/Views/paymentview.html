@@ -34,7 +34,7 @@
 
                                 </td>
                                 <td>
-                                    <input type="number" only-digits step="any" class="form-control" name="input" min="16" max="16" ng-model="cardnumber"
+                                    <input type="number" only-digits step="any" class="form-control" name="input" ng-pattern='.{16}' ng-model="cardnumber"
                                            placeholder="enter card number" required/>
                                 </td>
                             </tr>
@@ -43,12 +43,12 @@
                                     <label ng-model="cardexpirydate" ng-pattern="/^(0*[1-9]+0*)+$/"> Expiry Date:</label>
                                 </td>
                                 <td>
-                                    <input type="number" only-digits step="any" class="form-control" name="input" min="2" max="2" ng-model="cardexpirydatemonth"
+                                    <input type="number" only-digits step="any" class="form-control" name="input" ng-pattern='.{2}' ng-model="cardexpirydatemonth"
                                            placeholder="MM" required/>
                                 </td>
                                 <td><span> \ </span> </td>
                                 <td>
-                                    <input type="number" only-digits step="any" class="form-control" name="input" min="2" max="2" ng-model="cardexpirydateyear"
+                                    <input type="number" only-digits step="any" class="form-control" name="input" ng-pattern='.{2}' ng-model="cardexpirydateyear"
                                            placeholder="YY" required/>
                                 </td>
 
@@ -59,8 +59,29 @@
 
                                 </td>
                                 <td>
-                                    <input type="number" only-digits step="any" class="form-control" name="input" min="3" max="3" ng-model="cardcvv"
+                                    <input type="number" only-digits step="any" class="form-control" name="input" ng-pattern='.{3}' ng-model="cardcvv"
                                            placeholder="CVV" required/><br/><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label ng-model="cardholdersname"> Name on Card:</label>
+
+                                </td>
+                                <td>
+
+                                    <input type="text" class="form-control" name="input" ng-model="cardholdersname"
+                                           placeholder="Card holders name" required/><br/><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="">Billing Address</label>
+
+                                </td>
+                                <td>
+                                    <textarea id="paymentbillingaddress" ng-model="paymentbillingaddress" name="" cols="20" rows="10" class="form-control"></textarea>
+
                                 </td>
                             </tr>
                             <tr>

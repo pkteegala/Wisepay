@@ -66,9 +66,14 @@ namespace WisepayServices
 
     }
 
-    public Transaction AddTransaction(Transaction newtTransaction)
+    public string AddTransaction(Transaction newtTransaction)
     {
-      return this.unitOfWork.TransactionRepository.AddTransaction(newtTransaction);
+      var newTransaction= this.unitOfWork.TransactionRepository.AddTransaction(newtTransaction);
+      if (newTransaction.Id != 0 || newTransaction.Id != -1)
+      {
+        return "Successfully added New transaction";
+      }
+      return " Failed to Add New transaction";
 
     }
   }

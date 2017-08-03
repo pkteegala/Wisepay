@@ -1,12 +1,12 @@
-﻿wisepaymodule.controller("paymentmodel", ['$scope', '$routeParams', 'viewModelHelper', 'mysharedservice', '$location', '$rootScope',
-    function ($scope, $routeParams, viewModelHelper,mysharedservice, $location, $rootScope) {
+﻿wisepaymodule.controller("paymentmodel", ['$scope', '$routeParams', 'viewModelHelper', 'mysharedservice', '$location', '$rootScope', '$filter',
+    function ($scope, $routeParams, viewModelHelper, mysharedservice, $location, $rootScope, $filter) {
 
         $scope.viewModelHelper = viewModelHelper;
         $scope.IsRedirectionVisible = true;
         $scope.IspaymentDivVisible = false;
         var filldetailsofpage;
 
-        var initialize = function() {
+        var initialize = function () {
             $scope.pageheading = "Wisepay Insitute Details Page";
             if (($rootScope.currentcandidateDetails != null || $rootScope.currentcandidateDetails != undefined) &&
             ($rootScope.currentinstituteDetails != null || $rootScope.currentinstituteDetails != undefined)) {
@@ -17,7 +17,7 @@
 
             }
         };
-        filldetailsofpage = function() {
+        filldetailsofpage = function () {
             $scope.candidatenumber = $rootScope.currentcandidateDetails.id;
             $scope.candidatename = $rootScope.currentcandidateDetails.candidatename;
             $scope.candidateaddress = $rootScope.currentcandidateDetails.candidatecomments;
@@ -27,7 +27,7 @@
             $scope.institutename = $rootScope.currentinstituteDetails.institutename;
             $scope.instituteaddress = $rootScope.currentinstituteDetails.instituteaddress;
         };
-        var resetpaymentdetails=function() {
+        var resetpaymentdetails = function () {
             $scope.paymentamount = '';
             $scope.paymentrelatedcomments = '';
             $scope.cardnumber = '';
@@ -36,7 +36,7 @@
             $scope.cardcvv = '';
 
         }
-        var validateDataEntered = function() {
+        var validateDataEntered = function () {
             if ($scope.paymentamount == undefined || $scope.paymentamount.length == 0) {
                 swal("", "'Please enter valid payment amount!", "warning");
                 return false;
@@ -61,6 +61,14 @@
                 swal("", "'Please enter CVV code for card!", "warning");
                 return false;
             }
+            if ($scope.cardholdersname == undefined || $scope.cardholdersname.length == 0) {
+                swal("", "'Please enter Card Holders Name!", "warning");
+                return false;
+            }
+            if ($scope.paymentbillingaddress == undefined || $scope.paymentbillingaddress.length == 0) {
+                swal("", "'Please enter Billing address!", "warning");
+                return false;
+            }
             return true;
         };
         $scope.pay = function () {
@@ -69,11 +77,12 @@
 
                 var transactionmodel = {
                     id: $scope.candidatenumber,
+                    MemberId:$scope.candidatenumber,
                     TransactionDoneBy: $rootScope.globals.currentUser.username,
-                    TransactionDate: $filter('date') (new Date(), 'yyyy-MM-dd'),
+                    TransactionDate: $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss'),
                     Amount: $scope.paymentamount,
                     Comments: $scope.paymentrelatedcomments,
-                    PaymentGuid:'XXFGHDK',
+                    PaymentGuid: 'XXFGHDK',
                     PaymentRef: 'FIRSTTRANSACTION',
                     PaymentStatus: 'SUCCESS'
 
@@ -84,11 +93,12 @@
                     data: JSON.stringify(transactionmodel),
                     url: "api/transactions/add",
                     contentType: "application/json",
-                    success: function(data) {
+                    success: function (data) {
                         if (data.indexOf('Failed') != -1) {
                             swal("!", data, "error");
+                            resetpaymentdetails();
                         }
-                        swal("", 'Payment Successfull', 'success');
+                        swal("Success", 'Payment Successfull', 'success');
                         resetpaymentdetails();
                         mysharedservice.clearDetails();
                         viewModelHelper.navigateTo('home');
@@ -97,8 +107,8 @@
             };
         };
 
-        $scope.cancel = function() {
-             swal({
+        $scope.cancel = function () {
+            swal({
                 title: "Are you sure you want to cancel payment now",
                 text: "You can return and search for candidate to pay at a later date.",
                 type: "warning",
@@ -107,15 +117,15 @@
                 confirmButtonText: "Cancel Anyway!",
                 closeOnConfirm: true
             },
-              function () {
-                  resetpaymentdetails();
-                  redirecttohome();
-              mysharedservice.clearDetails();
-              });
+             function () {
+                 resetpaymentdetails();
+                 redirecttohome();
+                 mysharedservice.clearDetails();
+             });
         };
-       var redirecttohome=function() {
-           viewModelHelper.navigateTo('home');
-       }
+        var redirecttohome = function () {
+            viewModelHelper.navigateTo('home');
+        }
         initialize();
     }
 ]);

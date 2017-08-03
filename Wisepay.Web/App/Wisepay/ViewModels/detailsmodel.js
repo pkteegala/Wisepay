@@ -92,7 +92,7 @@
                 $scope.institutename.name,
                 $scope.institutename.address);
             mysharedservice.setcandidatedetails($scope.candidatename.id,
-                $scope.candidatename.firstName + '  ' + $scope.candidatename.lastname,
+                $scope.candidatename.firstName + '  ' + $scope.candidatename.lastName,
                 $scope.candidatename.comments);
             viewModelHelper.navigateTo('payment');
         }

@@ -16,6 +16,6 @@ namespace WisepayServiceInterfaces
 
     IList<Transaction> GetAllByPaymentStatus(string paymentStatus);
 
-    Transaction AddTransaction(Transaction newtTransaction);
+    string AddTransaction(Transaction newtTransaction);
   }
 }

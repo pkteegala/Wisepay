@@ -28,55 +28,61 @@
                         </div>
                     </div>
                 </div>
+                <br /><br /><br /><br /><br /><br />
                 <div class="col-6">
                     <div class="form-group">
                         <div class="row" id="searchresults" ng-model="candidatedetails">
-                            <label for="" class="">ID: {{candidatedetails.id}}</label><br/>
-                            <label for="" class="">Name: {{candidatedetails.firstName}} {{candidatedetails.lastName}}</label><br/>
-                            <label for="" class="">Address: {{candidatedetails.comments}}</label><br/>
-                        </div>
-                        <div class="row">
-                            <p class="text-center">
-                                <button class="btn btn-go" type="submit" ng-click="proceedtopayment()" style="background-color: orangered">Proceed To Payment --></button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div id="transactiondetailsDiv">
-                    <div class="card-header" role="tab" id="job-{{key}}-{{$index}}-heading">
-                        <span class="pull-right" data-toggle="collapse" data-parent="#accordion" href="#job-{{key}}-{{$index}}" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-chevron-down"></i></span>
-                       <span data-toggle="collapse" data-parent="#accordion" href="#job-{{key}}-{{$index}}" aria-expanded="true" aria-controls="collapseOne" ng-model="originPlanID">
-                            Transaction History: <strong>{{key}}</strong>
-
-                        </span>
-
-                    </div>
-                    <div id="job-{{key}}-{{$index}}" class="collapse" role="tabpanel" aria-labelledby="job-{{key}}-{{$index}}-heading">
-                        <div class="card-block">
-                            <table class="table table-hover comments-table">
+                            <strong style="color: brown"> Candidate Details</strong><br /><br />
+                            <table class="table table-hover">
                                 <thead>
-                                <tr>
-                                    <th>Status</th>
-                                    <th>PaypalRef</th>
-                                    <th>Ref</th>
-                                    <th class="text-center">Amount</th>
-                                    <th>Transaction Date</th>
-                                    <th class="text-center">Done By</th>
-                                </tr>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Comments</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="transaction in transactionslist">
-                                        <td width="100px">{{transaction.status}}</td>
-                                        <td width="100px">{{transaction.paypalRef}}</td>
-                                        <td width="100px">{{transaction.ref}}</td>
-                                        <td class="text-center" width="150px">{{ transaction.amount }}</td>
-                                        <td class="text-center" width="100px">{{transaction.date | date: 'dd/MM/yyyy' }}</td>
-                                        <td class="">{{ transaction.doneBy }}</td>
+                                        <td>{{candidatedetails.id}}</td>
+                                        <td>{{candidatedetails.firstName}} {{candidatedetails.lastName}}</td>
+                                        <td>{{candidatedetails.comments}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                </div>
+                <div id="transactiondetailsDiv">
+                    <strong style="color: brown"> Transaction History</strong><br/><br/>
+                    <div class="card-block">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>PaypalRef</th>
+                                    <th>Ref</th>
+                                    <th>Amount</th>
+                                    <th>Transaction Date</th>
+                                    <th>Done By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="transaction in transactionslist">
+                                    <td>{{transaction.status}}</td>
+                                    <td>{{transaction.payPalRef}}</td>
+                                    <td>{{transaction.ref}}</td>
+                                    <td>{{ transaction.amount }}</td>
+                                    <td>{{transaction.date | date: 'dd/MM/yyyy' }}</td>
+                                    <td>{{ transaction.doneBy }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="text-center">
+                        <button class="btn btn-go" type="submit" ng-click="proceedtopayment()" style="background-color: orangered">Proceed To Payment --></button>
+                    </p>
                 </div>
             </div>
         </div>
