@@ -74,12 +74,16 @@
         viewModelHelper.apiGet('api/transactions/getbymember/' +memberId, null,
               function(result) {
                   if (result.data == undefined || result.data.length == 0) {
-                      swal("Oops!!",
-                          "something went wrong with data from DB. No transaction details returned" + result.statusText,
-                          "info");
+                      //swal("Oops!!",
+                      //    "something went wrong with data from DB. No transaction details returned" + result.statusText,
+                      //    "info");
                       $('#transactiondetailsDiv').hide();
+                      $('#transactionhistorymessage').show();
+                      $scope.transactionhistorymessage = "There are no transactions to display for this candidate";
+
                   } else {
                       $scope.transactionslist = result.data;
+                      $('#transactionhistorymessage').hide();
                       $('#transactiondetailsDiv').show();
                   }
                   //initialize();

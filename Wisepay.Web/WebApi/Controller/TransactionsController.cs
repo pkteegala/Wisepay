@@ -32,7 +32,7 @@ namespace Wisepay.Web.WebApi.Controller
     {
       try
       {
-        return this.unitofService.TransactionService.GetAll(memberId).ToList();
+        return this.unitofService.TransactionService.GetByMemberId(memberId).ToList();
       }
       catch (Exception exception)
       {

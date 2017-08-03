@@ -22,10 +22,10 @@ namespace WisepayServices
       this.unitOfWork = unitOfWork;
     }
 
-    public IList<TransactionViewModel> GetAll(int memberId)
+    public IList<TransactionViewModel> GetByMemberId(int memberId)
     {
       var output=new List<TransactionViewModel>();
-      var resultFromDb= this.unitOfWork.TransactionRepository.GetAll(memberId);
+      var resultFromDb= this.unitOfWork.TransactionRepository.GetByMemberId(memberId);
       foreach (var transaction in resultFromDb)
       {
         output.Add(new TransactionViewModel()

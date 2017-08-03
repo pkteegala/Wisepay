@@ -9,7 +9,7 @@ namespace WisepayServiceInterfaces
 
   public interface ITransactionService
   {
-    IList<TransactionViewModel> GetAll(int memberId);
+    IList<TransactionViewModel> GetByMemberId(int memberId);
     Transaction GetByPaymentRef(string paymentRef);
     Transaction GetByPaymentGuid(string paymentGuid);
     IList<Transaction> GetByMemberPaymentStatus(int memberId, string status);

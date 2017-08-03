@@ -20,9 +20,9 @@ namespace Repository
 
     }
 
-    public IList<Transaction> GetAll(int memberId)
+    public IList<Transaction> GetByMemberId(int memberId)
     {
-      return this.Entities.ToList();
+      return this.Entities.Where(r=>r.MemberId.Equals(memberId)).ToList();
     }
 
     public Transaction GetByPaymentRef(string paymentRef)

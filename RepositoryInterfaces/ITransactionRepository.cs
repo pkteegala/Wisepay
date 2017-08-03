@@ -10,7 +10,7 @@ namespace RepositoryInterfaces
 
   public interface ITransactionRepository : IBaseRepository<Transaction>
   {
-    IList<Transaction> GetAll(int memberId);
+    IList<Transaction> GetByMemberId(int memberId);
     Transaction GetByPaymentRef(string paymentRef);
     Transaction GetByPaymentGuid(string paymentGuid);
     IList<Transaction> GetByMemberPaymentStatus(int memberId,string status);
