@@ -16,7 +16,6 @@
                 $scope.IspaymentDivVisible = true;
 
                 filldetailsofpage();
-
             }
         };
         filldetailsofpage = function () {
@@ -38,36 +37,37 @@
             $scope.cardcvv = '';
 
         }
+
         var validateDataEntered = function () {
-            if ($scope.paymentamount == undefined || $scope.paymentamount.length == 0) {
+            if ($scope.paymentamount == undefined || $scope.paymentamount.length === 0) {
                 swal("", "'Please enter valid payment amount!", "warning");
                 return false;
             }
-            if ($scope.paymentrelatedcomments == undefined || $scope.paymentrelatedcomments.length == 0) {
+            if ($scope.paymentrelatedcomments == undefined || $scope.paymentrelatedcomments.length === 0) {
                 swal("", "'Please enter payment related comments!", "warning");
                 return false;
             }
-            if ($scope.cardnumber == undefined || $scope.cardnumber.length == 0) {
+            if ($scope.cardnumber == undefined || $scope.cardnumber.toString().length === 0) {
                 swal("", "'Please enter long card number!", "warning");
                 return false;
             }
-            if ($scope.cardexpirydatemonth == undefined || $scope.cardexpirydatemonth.length == 0) {
+            if ($scope.cardexpirydatemonth == undefined || $scope.cardexpirydatemonth.toString().length === 0) {
                 swal("", "'Please enter card expiry month!", "warning");
                 return false;
             }
-            if ($scope.cardexpirydateyear == undefined || $scope.cardexpirydateyear.length == 0) {
+            if ($scope.cardexpirydateyear == undefined || $scope.cardexpirydateyear.toString().length === 0) {
                 swal("", "'Please enter card expiry year!", "warning");
                 return false;
             }
-            if ($scope.cardcvv == undefined || $scope.cardcvv.length == 0) {
+            if ($scope.cardcvv == undefined || $scope.cardcvv.toString().length === 0) {
                 swal("", "'Please enter CVV code for card!", "warning");
                 return false;
             }
-            if ($scope.cardholdersname == undefined || $scope.cardholdersname.length == 0) {
+            if ($scope.cardholdersname == undefined || $scope.cardholdersname.length === 0) {
                 swal("", "'Please enter Card Holders Name!", "warning");
                 return false;
             }
-            if ($scope.paymentbillingaddress == undefined || $scope.paymentbillingaddress.length == 0) {
+            if ($scope.paymentbillingaddress == undefined || $scope.paymentbillingaddress.length === 0) {
                 swal("", "'Please enter Billing address!", "warning");
                 return false;
             }
@@ -84,8 +84,8 @@
                     TransactionDate: $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss'),
                     Amount: $scope.paymentamount,
                     Comments: $scope.paymentrelatedcomments,
-                    PaymentGuid: 'XXFGHDKg',
-                    PaymentRef: 'SECONDTRANSACTION',
+                    PaymentGuid: 'XXFGHDKHYS',
+                    PaymentRef: 'THIRD TRANSACTION',
                     PaymentStatus: 'SUCCESS'
 
                 };

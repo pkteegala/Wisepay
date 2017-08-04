@@ -38,7 +38,9 @@
             });
      }
 
-     $scope.instituteselecteditemchanged = function() {
+     $scope.instituteselecteditemchanged = function () {
+         $('#searchresults').hide();
+         $('#transactiondetailsDiv').hide();
         viewModelHelper.apiGet('api/members/get/' + $scope.institutename.id,
             null,
             function(result) {
@@ -54,7 +56,9 @@
             });
     }
 
-    $scope.candidateselecteditemchanged = function () {
+     $scope.candidateselecteditemchanged = function () {
+         $('#searchresults').hide();
+         $('#transactiondetailsDiv').hide();
          viewModelHelper.apiGet('api/member/getdetails/' + $scope.candidatename.id, null,
               function(result) {
                   if (result.data == undefined || result.data.length == 0) {
